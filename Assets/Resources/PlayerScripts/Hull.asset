@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hull
   m_EditorClassIdentifier: 
   ShipPartType: 2
-  Name: Reactor
+  Name: Hull
   Description: Allows the ship to move in the opposite direction
   Weight: 1
   Shield: 1

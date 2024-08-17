@@ -10,6 +10,11 @@ public class ShipBlueprint
         _shipParts = shipParts;
     }
 
+    public List<ShipPart> GetShipParts() 
+    {
+        return _shipParts;
+    }
+
     public int GetReactorsWithOrientation(Directions orientation)
     {
         int reactors = 0;
