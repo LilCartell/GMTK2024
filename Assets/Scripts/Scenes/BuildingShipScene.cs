@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingShipScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ShipPartSpecificationDescription shipPartSpecificationDescription;
+
+    public ShipPartSpecification SelectedSpecification { get; private set; }
+
+    public static BuildingShipScene Instance { get { return _instance; } }
+    private static BuildingShipScene _instance;
+
+    private void Awake()
     {
-        
+        _instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetSelectedSpecification(ShipPartSpecification selectedSpecification)
     {
-        
+        SelectedSpecification = selectedSpecification;
+        RefreshSpecificationDescription();
+    }
+    
+    public void RefreshSpecificationDescription()
+    {
+        shipPartSpecificationDescription.LoadWithSpecification(SelectedSpecification);
     }
 }
