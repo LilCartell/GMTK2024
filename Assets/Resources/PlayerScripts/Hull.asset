@@ -18,6 +18,6 @@ MonoBehaviour:
   Weight: 1
   Shield: 1
   Cost: 1
-  Hull: 0
+  Hull: 1
   Icon: {fileID: 21300000, guid: ccf4006292e10dc4f8d77a20c6962fa6, type: 3}
-  PossibleDirections: 01000000020000000300000004000000
+  PossibleDirections: 00000000
