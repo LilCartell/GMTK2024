@@ -103,6 +103,21 @@ public class ShipBuildingGrid : MonoBehaviour
         return true;
     }
 
+    public ShipBlueprint GetShipBlueprint()
+    {
+        var shipBlueprint = new ShipBlueprint();
+        var shipParts = new List<ShipPart>();
+        foreach (var cell in _buildingCells)
+        {
+            if (cell.LoadedSpecification != null)
+            {
+                shipParts.Add(new ShipPart() { Specification = cell.LoadedSpecification, Coordinates = cell.Coordinates });
+            }
+        }
+        shipBlueprint.LoadWithShipParts(shipParts);
+        return shipBlueprint;
+    }
+
     private Coordinates GetCoordinatesFromIndex(int index)
     {
         return new Coordinates( index % ColumnsNumber, index / ColumnsNumber );
@@ -110,6 +125,6 @@ public class ShipBuildingGrid : MonoBehaviour
 
     private int GetIndexFromCoordinates(Coordinates coordinates)
     {
-        return ColumnsNumber * coordinates.Y + coordinates.X;
+        return ColumnsNumber * (int)coordinates.Y + (int)coordinates.X;
     }
 }

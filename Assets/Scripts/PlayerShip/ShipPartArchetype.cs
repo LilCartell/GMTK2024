@@ -13,4 +13,5 @@ public class ShipPartArchetype : ScriptableObject
     public float Hull;
     public Sprite Icon;
     public List<Directions> PossibleDirections;
+    public GameObject ShmupScenePrefab;
 }

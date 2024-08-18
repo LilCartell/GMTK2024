@@ -1,9 +1,9 @@
 public class Coordinates
 {
-    public int X;
-    public int Y;
+    public float X;
+    public float Y;
 
-    public Coordinates(int x, int y)
+    public Coordinates(float x, float y)
     {
         X = x;
         Y = y;
@@ -14,13 +14,13 @@ public class Coordinates
         switch(direction)
         {
             case Directions.LEFT:
-                return new Coordinates(X - 1, Y);
+                return new Coordinates(X - 1.0f, Y);
             case Directions.RIGHT:
-                return new Coordinates(X + 1, Y);
+                return new Coordinates(X + 1.0f, Y);
             case Directions.UP:
-                return new Coordinates(X, Y - 1);
+                return new Coordinates(X, Y - 1.0f);
             case Directions.DOWN:
-                return new Coordinates(X, Y + 1);
+                return new Coordinates(X, Y + 1.0f);
             default:
                 return this;
         }

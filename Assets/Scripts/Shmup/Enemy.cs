@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : ShmupCharacter
 {
-    // Start is called before the first frame update
-    void Start()
+    public float StartingLife;
+
+    private void Awake()
     {
-        
+        _life = StartingLife;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void HandleDeath()
     {
-        
+        Debug.Log("Gagné !");
+        Destroy(this.gameObject);
     }
 }

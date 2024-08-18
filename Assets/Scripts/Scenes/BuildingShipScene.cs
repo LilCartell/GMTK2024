@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BuildingShipScene : MonoBehaviour
 {
+    public ShipBuildingGrid buildingGrid;
     public ShipPartSpecificationDescription shipPartSpecificationDescription;
     public Button undoButton;
     public Button redoButton;
@@ -33,6 +35,12 @@ public class BuildingShipScene : MonoBehaviour
     public void Redo()
     {
         ShipBuildingActionQueue.RedoLastAction();
+    }
+
+    public void Confirm()
+    {
+        GameSession.Instance.CurrentShipBlueprint = buildingGrid.GetShipBlueprint();
+        SceneManager.LoadScene("ShmupScene");
     }
 
     public void SetSelectedSpecification(ShipPartSpecification selectedSpecification)

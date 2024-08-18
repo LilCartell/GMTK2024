@@ -37,4 +37,13 @@ public class ShipBlueprint
     {
         return _shipParts.Sum(part => part.Specification.ShipPartArchetype.Hull);
     }
+
+    public Coordinates GetCenterCoordinates()
+    {
+        float minX = _shipParts.Min(shipPart => shipPart.Coordinates.X);
+        float maxX = _shipParts.Max(shipPart => shipPart.Coordinates.X);
+        float minY = _shipParts.Min(shipPart => shipPart.Coordinates.Y);
+        float maxY = _shipParts.Max(shipPart => shipPart.Coordinates.Y);
+        return new Coordinates((float)(minX + maxX) / 2.0f, (float)(minY + maxY) / 2.0f);
+    }
 }
