@@ -9,6 +9,8 @@ public class BuildingShipScene : MonoBehaviour
     public Button undoButton;
     public Button redoButton;
 
+    public Button cheatButton;
+
     public ShipPartSpecification SelectedSpecification { get; private set; }
     public ShipBuildingActionQueue ShipBuildingActionQueue { get; private set; }
     public bool IsInDeleteMode { get; private set; }
@@ -20,6 +22,12 @@ public class BuildingShipScene : MonoBehaviour
     {
         _instance = this;
         ShipBuildingActionQueue = new ShipBuildingActionQueue();
+
+    #if UNITY_EDITOR
+        cheatButton.gameObject.SetActive(true);
+    #else
+        cheatButton.gameObject.SetActive(false);
+    #endif
     }
 
     private void Update()
@@ -52,6 +60,11 @@ public class BuildingShipScene : MonoBehaviour
     public void Clear()
     {
         ShipBuildingActionQueue.QueueAndDoAction(new ClearGridShipBuildingAction());
+    }
+
+    public void Cheat()
+    {
+        GameSession.Instance.CurrentMoney = 1000000000;
     }
 
     public void SetSelectedSpecification(ShipPartSpecification selectedSpecification)
