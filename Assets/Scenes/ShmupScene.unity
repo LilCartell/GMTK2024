@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerShipPartsSize: 0.6
-  PlayerSpeedFactor: 80
+  PlayerSpeedFactor: 100
   sceneCamera: {fileID: 1064759763}
   enemyAnchor: {fileID: 2079725112}
   playerShip: {fileID: 147291185}
