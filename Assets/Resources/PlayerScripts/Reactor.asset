@@ -19,6 +19,6 @@ MonoBehaviour:
   Shield: 1
   Cost: 1
   Hull: 1
-  Icon: {fileID: 21300000, guid: 525176f2fd37a074eba6fad6fe95d36c, type: 3}
+  Icon: {fileID: 21300000, guid: 9af630104fe4b6547a44428385be13dd, type: 3}
   PossibleDirections: 01000000020000000300000004000000
   ShmupScenePrefab: {fileID: 6868079622618384417, guid: 74379f8f28a947b49ae91b2bacc47e90, type: 3}
