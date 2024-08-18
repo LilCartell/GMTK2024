@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ShmupScene : MonoBehaviour
@@ -7,9 +8,12 @@ public class ShmupScene : MonoBehaviour
     public Camera sceneCamera;
     public Transform enemyAnchor;
     public PlayerShip playerShip;
+    public TextMeshProUGUI timerText;
 
     public static ShmupScene Instance { get { return _instance; } }
     private static ShmupScene _instance;
+
+    private float _remainingTime;
 
     private void Awake()
     {
@@ -31,5 +35,18 @@ public class ShmupScene : MonoBehaviour
         enemyAnchor.transform.localPosition *= displacementRatio;
         playerShip.transform.localPosition *= displacementRatio;
         playerShip.gameObject.SetActive(true);
+        
+        _remainingTime = currentLevelInfo.Timer;
+    }
+
+    private void Update()
+    {
+        _remainingTime -= Time.deltaTime;
+        timerText.text = _remainingTime.ToString("00");
+        if(_remainingTime <= 0)
+        {
+            _remainingTime = 0;
+            GameSession.Instance.Lose();
+        }
     }
 }

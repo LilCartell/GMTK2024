@@ -33,13 +33,16 @@ public class GameSession
 
 	public void Lose()
 	{
-		IsLoadingLose = true;
-		SceneManager.LoadScene("GameOverScene");
+		if(!IsLoadingLose && !IsLoadingWin)
+		{
+            IsLoadingLose = true;
+            SceneManager.LoadScene("GameOverScene");
+        }
 	}
 
 	public void Win()
 	{
-		if(!IsLoadingWin)
+		if(!IsLoadingWin && !IsLoadingLose)
 		{
             IsLoadingWin = true;
             ++CurrentLevel;
