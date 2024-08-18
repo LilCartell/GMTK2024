@@ -11,7 +11,6 @@ public class Enemy : ShmupCharacter
 
     protected override void HandleDeath()
     {
-        Debug.Log("Gagné !");
-        Destroy(this.gameObject);
+        GameSession.Instance.Win();
     }
 }

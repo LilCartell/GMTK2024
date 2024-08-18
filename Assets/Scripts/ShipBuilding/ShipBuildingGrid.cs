@@ -59,7 +59,7 @@ public class ShipBuildingGrid : MonoBehaviour
         {
             _buildingCells[GetIndexFromCoordinates(shipPart.Coordinates)].PlaceSpecInCell(shipPart.Specification);
         }
-        GameSession.Instance.CurrentMoney = BuildingShipScene.Instance.BaseMoney - GameSession.Instance.CurrentShipBlueprint.GetTotalCost();
+        GameSession.Instance.CurrentMoney = GameSession.Instance.GetCurrentLevelInfo().Money - GameSession.Instance.CurrentShipBlueprint.GetTotalCost();
     }
 
     public void Update()

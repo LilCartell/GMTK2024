@@ -117,7 +117,6 @@ public class PlayerShip : ShmupCharacter
 
     protected override void HandleDeath()
     {
-        Debug.Log("Perdu !");
-        Destroy(this.gameObject);
+        GameSession.Instance.Lose();
     }
 }
