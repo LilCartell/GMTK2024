@@ -178,7 +178,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &147291187
 Transform:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerShipPartsSize: 0.6
-  PlayerSpeedFactor: 50
+  PlayerSpeedFactor: 80
   sceneCamera: {fileID: 1064759763}
   enemyAnchor: {fileID: 2079725112}
   playerShip: {fileID: 147291185}
