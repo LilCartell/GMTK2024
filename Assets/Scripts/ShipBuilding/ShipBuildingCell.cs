@@ -4,14 +4,17 @@ using UnityEngine.UI;
 
 public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    public GameObject deleteIcon;
     public GameObject greenMask;
     public GameObject redMask;
     public Image shipPartSprite;
+    public bool isDeletable;
 
     public ShipPartSpecification LoadedSpecification { get; private set; }
     public Coordinates Coordinates { get; private set; }
 
     private bool _canPlace = false;
+    private bool _canDelete = false;
 
     private void Awake()
     {
@@ -25,31 +28,52 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(_canPlace)
+        if (BuildingShipScene.Instance.IsInDeleteMode)
         {
-            BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new PlaceSpecInCellsShipBuildingAction(BuildingShipScene.Instance.SelectedSpecification, this));
+            if (isDeletable && LoadedSpecification != null)
+            {
+                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new DeleteSpecsFromCellShipBuildingAction(BuildingShipScene.Instance.SelectedSpecification, this));
+            }
+        }
+        else
+        {
+            if (_canPlace)
+            {
+                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new PlaceSpecInCellsShipBuildingAction(BuildingShipScene.Instance.SelectedSpecification, this));
+            }
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(BuildingShipScene.Instance.SelectedSpecification != null)
+        if(BuildingShipScene.Instance.IsInDeleteMode)
         {
-            shipPartSprite.gameObject.SetActive(true);
-            shipPartSprite.sprite = BuildingShipScene.Instance.SelectedSpecification.ShipPartArchetype.Icon;
-            shipPartSprite.transform.rotation = BuildingShipScene.Instance.SelectedSpecification.Orientation.GetRotation();
-
-            if (GetComponentInParent<ShipBuildingGrid>().CanBuildSpecificationsOnCoordinates(BuildingShipScene.Instance.SelectedSpecification, Coordinates))
+            _canDelete = GetComponentInParent<ShipBuildingGrid>().CanDeleteCell(this);
+            if (isDeletable && _canDelete)
             {
-                _canPlace = true;
-                greenMask.SetActive(true);
-                redMask.SetActive(false);
+                deleteIcon.SetActive(true);
             }
-            else
+        }
+        else
+        {
+            if (BuildingShipScene.Instance.SelectedSpecification != null)
             {
-                _canPlace = false;
-                greenMask.SetActive(false);
-                redMask.SetActive(true);
+                shipPartSprite.gameObject.SetActive(true);
+                shipPartSprite.sprite = BuildingShipScene.Instance.SelectedSpecification.ShipPartArchetype.Icon;
+                shipPartSprite.transform.rotation = BuildingShipScene.Instance.SelectedSpecification.Orientation.GetRotation();
+
+                if (GetComponentInParent<ShipBuildingGrid>().CanBuildSpecificationsOnCoordinates(BuildingShipScene.Instance.SelectedSpecification, Coordinates))
+                {
+                    _canPlace = true;
+                    greenMask.SetActive(true);
+                    redMask.SetActive(false);
+                }
+                else
+                {
+                    _canPlace = false;
+                    greenMask.SetActive(false);
+                    redMask.SetActive(true);
+                }
             }
         }
     }
@@ -85,5 +109,6 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             shipPartSprite.gameObject.SetActive(false);
         }
+        deleteIcon.SetActive(false);
     }
 }

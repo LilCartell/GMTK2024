@@ -16,16 +16,17 @@ public class ShipBuildingGrid : MonoBehaviour
 
     private void Awake()
     {
+        var centerCoordinates = new Coordinates
+        (
+            Mathf.RoundToInt(((float)ColumnsNumber) / 2.0f),
+            Mathf.RoundToInt(((float)LinesNumber) / 2.0f)
+        );
+
         //Initializing with a single hull part in the center of the ship;
         if (GameSession.Instance.CurrentShipBlueprint == null)
         {
             GameSession.Instance.CurrentShipBlueprint = new ShipBlueprint();
             var hullArchetype = Resources.LoadAll<ShipPartArchetype>("").First(archetype => archetype.ShipPartType == ShipPartType.HULL);
-            var centerCoordinates = new Coordinates
-            (
-                Mathf.RoundToInt(((float)ColumnsNumber) / 2.0f),
-                Mathf.RoundToInt(((float)LinesNumber) / 2.0f)
-            );
             var hullSpec = new ShipPartSpecification() { ShipPartArchetype = hullArchetype };
             var centerShipPart = new ShipPart() { Specification = hullSpec, Coordinates = centerCoordinates };
             GameSession.Instance.CurrentShipBlueprint.LoadWithShipParts(new List<ShipPart>() { centerShipPart });
@@ -47,7 +48,9 @@ public class ShipBuildingGrid : MonoBehaviour
             newCell.transform.localPosition = Vector3.zero;
             newCell.transform.localScale = Vector3.one;
             var newCellComponent = newCell.GetComponent<ShipBuildingCell>();
-            newCellComponent.SetCoordinates(GetCoordinatesFromIndex(i));
+            var coordinates = GetCoordinatesFromIndex(i);
+            newCellComponent.SetCoordinates(coordinates);
+            newCellComponent.isDeletable = !coordinates.Equals(centerCoordinates);
             _buildingCells.Add(newCellComponent);
         }
 
@@ -62,6 +65,11 @@ public class ShipBuildingGrid : MonoBehaviour
     public void Update()
     {
         remainingMoney.text = GameSession.Instance.CurrentMoney.ToString();
+    }
+
+    public List<ShipBuildingCell> GetShipBuildingCells()
+    {
+        return _buildingCells;
     }
 
     public bool CanBuildSpecificationsOnCoordinates(ShipPartSpecification specifications, Coordinates coordinates)
@@ -109,6 +117,16 @@ public class ShipBuildingGrid : MonoBehaviour
                 return false; //Don't put a new cell pointing to one already in place
         }
         return true;
+    }
+
+    public bool CanDeleteCell(ShipBuildingCell cell)
+    {
+        if(cell.LoadedSpecification != null) //In progress, delete is deactivated for now because it creates complicated edge cases
+        {
+            if (cell.LoadedSpecification.ShipPartArchetype.ShipPartType != ShipPartType.HULL)
+                return true;
+        }
+        return false;
     }
 
     public ShipBlueprint GetShipBlueprint()

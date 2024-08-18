@@ -25,4 +25,9 @@ public class Coordinates
                 return this;
         }
     }
+
+    public bool Equals(Coordinates other)
+    {
+        return other.X == X && other.Y == Y;
+    }
 }

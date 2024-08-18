@@ -12,6 +12,7 @@ public class BuildingShipScene : MonoBehaviour
 
     public ShipPartSpecification SelectedSpecification { get; private set; }
     public ShipBuildingActionQueue ShipBuildingActionQueue { get; private set; }
+    public bool IsInDeleteMode { get; private set; }
 
     public static BuildingShipScene Instance { get { return _instance; } }
     private static BuildingShipScene _instance;
@@ -44,9 +45,20 @@ public class BuildingShipScene : MonoBehaviour
         SceneManager.LoadScene("ShmupScene");
     }
 
+    public void Delete()
+    {
+        IsInDeleteMode = true;
+    }
+
+    public void Clear()
+    {
+        ShipBuildingActionQueue.QueueAndDoAction(new ClearGridShipBuildingAction());
+    }
+
     public void SetSelectedSpecification(ShipPartSpecification selectedSpecification)
     {
         SelectedSpecification = selectedSpecification;
+        IsInDeleteMode = false;
         RefreshSpecificationDescription();
     }
     
