@@ -8,6 +8,10 @@ public class ShmupScene : MonoBehaviour
     public Camera sceneCamera;
     public Transform enemyAnchor;
     public PlayerShip playerShip;
+    public GameObject rightBorder;
+    public GameObject leftBorder;
+    public GameObject topBorder;
+    public GameObject bottomBorder;
     public TextMeshProUGUI timerText;
 
     public static ShmupScene Instance { get { return _instance; } }
@@ -34,6 +38,10 @@ public class ShmupScene : MonoBehaviour
         float displacementRatio = Mathf.Abs(currentLevelInfo.CameraDistance / baseCameraDistance);
         enemyAnchor.transform.localPosition *= displacementRatio;
         playerShip.transform.localPosition *= displacementRatio;
+        rightBorder.transform.localPosition *= displacementRatio;
+        leftBorder.transform.localPosition *= displacementRatio;
+        topBorder.transform.localPosition *= displacementRatio;
+        bottomBorder.transform.localPosition *= displacementRatio;
         playerShip.gameObject.SetActive(true);
         
         _remainingTime = currentLevelInfo.Timer;
