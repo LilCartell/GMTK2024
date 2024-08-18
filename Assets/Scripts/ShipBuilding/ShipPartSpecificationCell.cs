@@ -5,7 +5,27 @@ using UnityEngine.UI;
 public class ShipPartSpecificationCell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Image icon;
+    public Image selectionMask;
     private ShipPartSpecification _specification;
+    private Toggle _toggleComponent;
+
+    private void Awake()
+    {
+        _toggleComponent = GetComponent<Toggle>();
+    }
+
+    public void Update()
+    {
+        if(_specification != null)
+        {
+            bool shouldBeInteractable = GameSession.Instance.CurrentMoney >= _specification.ShipPartArchetype.Cost;
+            if (_toggleComponent.isOn)
+            {
+                _toggleComponent.isOn = shouldBeInteractable;
+            }
+            _toggleComponent.interactable = shouldBeInteractable;
+        }
+    }
 
     public void LoadWithSpecification(ShipPartSpecification specification)
     {
@@ -16,8 +36,11 @@ public class ShipPartSpecificationCell : MonoBehaviour, IPointerEnterHandler, IP
 
     public void OnSelectedChanged(bool selected)
     {
-        if(selected)
+        selectionMask.gameObject.SetActive(selected);
+        if (selected)
             BuildingShipScene.Instance.SetSelectedSpecification(_specification);
+        else
+            BuildingShipScene.Instance.SetSelectedSpecification(null);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

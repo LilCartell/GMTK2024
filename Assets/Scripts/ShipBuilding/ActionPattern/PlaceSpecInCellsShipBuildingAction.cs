@@ -11,10 +11,12 @@ public class PlaceSpecInCellsShipBuildingAction : IShipBuildingAction
     public void Do()
     {
         _shipBuildingCell.PlaceSpecInCell(_shipPartSpecification);
+        GameSession.Instance.CurrentMoney -= _shipPartSpecification.ShipPartArchetype.Cost;
     }
 
     public void Undo()
     {
         _shipBuildingCell.RemoveSpecFromCell();
+        GameSession.Instance.CurrentMoney += _shipPartSpecification.ShipPartArchetype.Cost;
     }
 }

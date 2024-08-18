@@ -38,6 +38,11 @@ public class ShipBlueprint
         return _shipParts.Sum(part => part.Specification.ShipPartArchetype.Hull);
     }
 
+    public float GetTotalCost()
+    {
+        return _shipParts.Sum(part => part.Specification.ShipPartArchetype.Cost);
+    }
+
     public Coordinates GetCenterCoordinates()
     {
         float minX = _shipParts.Min(shipPart => shipPart.Coordinates.X);

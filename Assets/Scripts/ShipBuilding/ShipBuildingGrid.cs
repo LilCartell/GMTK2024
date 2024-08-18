@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class ShipBuildingGrid : MonoBehaviour
 {
     public GameObject shipBuildingCellPrefab;
     public GameObject gridRoot;
+    public TextMeshProUGUI remainingMoney;
     public int LinesNumber;
     public int ColumnsNumber;
 
@@ -54,6 +56,12 @@ public class ShipBuildingGrid : MonoBehaviour
         {
             _buildingCells[GetIndexFromCoordinates(shipPart.Coordinates)].PlaceSpecInCell(shipPart.Specification);
         }
+        GameSession.Instance.CurrentMoney = BuildingShipScene.Instance.BaseMoney - GameSession.Instance.CurrentShipBlueprint.GetTotalCost();
+    }
+
+    public void Update()
+    {
+        remainingMoney.text = GameSession.Instance.CurrentMoney.ToString();
     }
 
     public bool CanBuildSpecificationsOnCoordinates(ShipPartSpecification specifications, Coordinates coordinates)

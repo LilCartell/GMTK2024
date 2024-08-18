@@ -1,6 +1,7 @@
 ﻿public class GameSession
 {
 	public ShipBlueprint CurrentShipBlueprint;
+	public float CurrentMoney;
 
 	private static GameSession _instance;
 	public static GameSession Instance

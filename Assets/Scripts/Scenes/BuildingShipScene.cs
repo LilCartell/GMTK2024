@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BuildingShipScene : MonoBehaviour
 {
+    public float BaseMoney = 50;
     public ShipBuildingGrid buildingGrid;
     public ShipPartSpecificationDescription shipPartSpecificationDescription;
     public Button undoButton;
