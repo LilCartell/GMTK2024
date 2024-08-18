@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerShip : ShmupCharacter
 {
+    private Rigidbody2D _rigidBody;
     private void Start()
     {
+        _rigidBody = GetComponent<Rigidbody2D>();
         if(GameSession.Instance.CurrentShipBlueprint == null)
         {
             GameSession.Instance.CurrentShipBlueprint = new ShipBlueprint();
@@ -73,6 +75,44 @@ public class PlayerShip : ShmupCharacter
             newPart.transform.localPosition = new Vector3(xDifference, -yDifference, 0) * ShmupScene.Instance.PlayerShipPartsSize;
         }
         _life = GameSession.Instance.CurrentShipBlueprint.GetTotalHull();
+    }
+
+    public void Update()
+    {
+        Vector3 newPosition = this.transform.position;
+        var pressedTravelDirections = new List<Directions>();
+
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            pressedTravelDirections.Add(Directions.UP);
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            pressedTravelDirections.Add(Directions.LEFT);
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            pressedTravelDirections.Add(Directions.DOWN);
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            pressedTravelDirections.Add(Directions.RIGHT);
+        }
+        
+        foreach(var direction in pressedTravelDirections)
+        {
+            newPosition += direction.GetNormalizedDirection() * (ShmupScene.Instance.PlayerSpeedFactor * Time.deltaTime
+                * GameSession.Instance.CurrentShipBlueprint.GetReactorsWithOrientation(direction.GetOpposite()) / GameSession.Instance.CurrentShipBlueprint.GetTotalWeight());
+        }
+        _rigidBody.MovePosition(newPosition);
+
+        if(Input.GetMouseButton(0))
+        {
+            foreach(var gun in GetComponentsInChildren<Gun>())
+            {
+                gun.RequestShoot();
+            }
+        }
     }
 
     protected override void HandleDeath()
