@@ -905,6 +905,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGunDown (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8375064272486343086, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2083,6 +2087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGunDown (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8375064272486343086, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
+      propertyPath: firstShotOffset
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2330,6 +2338,10 @@ PrefabInstance:
     - target: {fileID: 6488165302300203432, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
       propertyPath: m_Name
       value: EnemyGunDown (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375064272486343086, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2889,6 +2901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGunLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3447,6 +3463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGunDown
       objectReference: {fileID: 0}
+    - target: {fileID: 8375064272486343086, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3756,6 +3776,18 @@ PrefabInstance:
     - target: {fileID: 2185099442910078336, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: m_Name
       value: EnemyGunLeft (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
+      propertyPath: rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
+      propertyPath: rotationAmplitude
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4395,6 +4427,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8567739310844483833}
     m_Modifications:
+    - target: {fileID: 943046586423970722, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3725649761367468644, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
       propertyPath: m_Name
       value: EnemyGunRight
@@ -4643,6 +4679,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8567739310844483833}
     m_Modifications:
+    - target: {fileID: 943046586423970722, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
+      propertyPath: firstShotOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3725649761367468644, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
       propertyPath: m_Name
       value: EnemyGunRight (3)
@@ -4705,6 +4745,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8567739310844483833}
     m_Modifications:
+    - target: {fileID: 943046586423970722, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3725649761367468644, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
       propertyPath: m_Name
       value: EnemyGunRight (2)
@@ -5511,6 +5555,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8567739310844483833}
     m_Modifications:
+    - target: {fileID: 943046586423970722, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
+      propertyPath: firstShotOffset
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3725649761367468644, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
       propertyPath: m_Name
       value: EnemyGunRight (1)
@@ -7414,6 +7462,18 @@ PrefabInstance:
     - target: {fileID: 2185099442910078336, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: m_Name
       value: EnemyGunLeft (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
+      propertyPath: rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
+      propertyPath: timeBetweenShots
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
+      propertyPath: rotationAmplitude
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
