@@ -8,6 +8,8 @@ public class GameSession
 	public ShipBlueprint CurrentShipBlueprint;
 	public float CurrentMoney = 0;
 	public int CurrentLevel = 0;
+	public bool IsLoadingWin = false;
+	public bool IsLoadingLose = false;
 
 	private List<LevelInfo> _levelsInfo;
 
@@ -31,19 +33,24 @@ public class GameSession
 
 	public void Lose()
 	{
+		IsLoadingLose = true;
 		SceneManager.LoadScene("GameOverScene");
 	}
 
 	public void Win()
 	{
-		++CurrentLevel;
-		if(CurrentLevel >= _levelsInfo.Count)
+		if(!IsLoadingWin)
 		{
-			SceneManager.LoadScene("FinishGameScene");
-		}
-		else 
-		{
-			SceneManager.LoadScene("FinishLevelScene");
-		}
+            IsLoadingWin = true;
+            ++CurrentLevel;
+            if (CurrentLevel >= _levelsInfo.Count)
+            {
+                SceneManager.LoadScene("FinishGameScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("FinishLevelScene");
+            }
+        }
 	}
 }
