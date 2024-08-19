@@ -72,7 +72,7 @@ public class PlayerShip : ShmupCharacter
             newPart.transform.SetParent(this.transform);
             newPart.transform.localScale = Vector3.one;
             newPart.transform.localRotation = shipPart.Specification.Orientation.GetRotation();
-            newPart.transform.localPosition = new Vector3(xDifference, -yDifference, 0) * ShmupScene.Instance.PlayerShipPartsSize;
+            newPart.transform.localPosition = new Vector3(xDifference, -yDifference, 0) * GameConstants.SHIP_PARTS_SIZE;
         }
         _life = GameSession.Instance.CurrentShipBlueprint.GetTotalHull();
     }
@@ -101,7 +101,7 @@ public class PlayerShip : ShmupCharacter
         
         foreach(var direction in pressedTravelDirections)
         {
-            newPosition += direction.GetNormalizedDirection() * (ShmupScene.Instance.PlayerSpeedFactor * Time.deltaTime
+            newPosition += direction.GetNormalizedDirection() * (GameConstants.SHMUP_PLAYER_SPEED_FACTOR * Time.deltaTime
                 * GameSession.Instance.CurrentShipBlueprint.GetReactorsWithOrientation(direction.GetOpposite()) / GameSession.Instance.CurrentShipBlueprint.GetTotalWeight());
         }
         _rigidBody.MovePosition(newPosition);

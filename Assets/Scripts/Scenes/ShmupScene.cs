@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class ShmupScene : MonoBehaviour
 {
-    public float PlayerShipPartsSize = 60.0f;
-    public float PlayerSpeedFactor = 1.0f;
     public Camera sceneCamera;
     public Transform enemyAnchor;
     public PlayerShip playerShip;
@@ -30,7 +28,7 @@ public class ShmupScene : MonoBehaviour
         playerShip.gameObject.SetActive(false); //Creates a collision bug during enemy instantiation otherwise
         var enemyForThisLevel = Instantiate(currentLevelInfo.EnemyPrefab);
         enemyForThisLevel.transform.SetParent(enemyAnchor);
-        enemyForThisLevel.transform.localPosition = Vector3.zero;
+        enemyForThisLevel.transform.localPosition = -enemyForThisLevel.GetComponent<Enemy>().GetCenterOffset();
         enemyForThisLevel.transform.localRotation = Quaternion.identity;
         enemyForThisLevel.transform.localScale = Vector3.one;
         float baseCameraDistance = Mathf.Abs(sceneCamera.transform.localPosition.z);
