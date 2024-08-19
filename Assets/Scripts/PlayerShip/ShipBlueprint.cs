@@ -20,7 +20,8 @@ public class ShipBlueprint
         int reactors = 0;
         foreach(var part in _shipParts)
         {
-            if(part.Specification.Orientation == orientation)
+            if(part.Specification.ShipPartArchetype.ShipPartType == ShipPartType.REACTOR
+                && part.Specification.Orientation == orientation)
             {
                 ++reactors;
             }
