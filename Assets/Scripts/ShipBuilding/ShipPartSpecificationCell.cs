@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class ShipPartSpecificationCell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public ShipPartType ShipPartType;
+    public Directions Orientation;
+
     public Image icon;
     public Image selectionMask;
     private ShipPartSpecification _specification;
@@ -30,7 +33,7 @@ public class ShipPartSpecificationCell : MonoBehaviour, IPointerEnterHandler, IP
     public void LoadWithSpecification(ShipPartSpecification specification)
     {
         _specification = specification;
-        icon.sprite = specification.ShipPartArchetype.ShopIcon;
+        icon.sprite = specification.ShipPartArchetype.GetShopIconByOrientation(specification.Orientation);
         icon.transform.localRotation = specification.Orientation.GetRotation();
     }
 

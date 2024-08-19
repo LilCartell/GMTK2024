@@ -12,8 +12,8 @@ public class ShipPartArchetype : ScriptableObject
     public float Shield;
     public float Cost;
     public float Hull;
-    public Sprite Icon;
     public Sprite ShopIcon;
+    public Sprite Icon;
     public List<SpriteForOrientation> SpritesByOrientation;
     public List<Directions> PossibleDirections;
     public GameObject ShmupScenePrefab;
@@ -26,6 +26,16 @@ public class ShipPartArchetype : ScriptableObject
                 return spriteByOrientation.Sprite;
         }
         return Icon;
+    }
+
+    public Sprite GetShopIconByOrientation(Directions orientation)
+    {
+        foreach (var spriteByOrientation in SpritesByOrientation)
+        {
+            if (spriteByOrientation.Orientation == orientation)
+                return spriteByOrientation.ShopSprite;
+        }
+        return ShopIcon;
     }
 
     public List<Sprite> GetSpecialAnimationSpritesByOrientation(Directions orientation)
@@ -43,6 +53,7 @@ public class ShipPartArchetype : ScriptableObject
 public class SpriteForOrientation
 {
     public Sprite Sprite;
+    public Sprite ShopSprite;
     public List<Sprite> SpecialAnimationSprites;
     public Directions Orientation;
 }

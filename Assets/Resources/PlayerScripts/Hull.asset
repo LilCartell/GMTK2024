@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShipPartType: 2
   Name: Hull
-  Description: Allows the ship to move in the opposite direction
+  Description: Provides HP.
   Weight: 1
   Shield: 1
   Cost: 1
   Hull: 1
+  ShopIcon: {fileID: 21300000, guid: 27fb97f9eebcf4b47a213fffd09ef0c3, type: 3}
   Icon: {fileID: 21300000, guid: c44842d08636f184698d1ea1fa82b539, type: 3}
-  ShopIcon: {fileID: 21300000, guid: c44842d08636f184698d1ea1fa82b539, type: 3}
   SpritesByOrientation: []
   PossibleDirections: 00000000
   ShmupScenePrefab: {fileID: 3383354065793452967, guid: cca763b2673452741af97f79ad40e698, type: 3}

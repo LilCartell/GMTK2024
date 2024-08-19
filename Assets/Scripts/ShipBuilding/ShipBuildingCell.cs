@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -60,7 +61,15 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
             {
                 shipPartSprite.gameObject.SetActive(true);
                 var orientation = BuildingShipScene.Instance.SelectedSpecification.Orientation;
-                shipPartSprite.sprite = BuildingShipScene.Instance.SelectedSpecification.ShipPartArchetype.GetSpriteByOrientation(orientation);
+                var specialAnimationSprites = BuildingShipScene.Instance.SelectedSpecification.ShipPartArchetype.GetSpecialAnimationSpritesByOrientation(orientation);
+                if (specialAnimationSprites != null && specialAnimationSprites.Count > 0)
+                {
+                    shipPartSprite.sprite = specialAnimationSprites.Last();
+                }
+                else
+                {
+                    shipPartSprite.sprite = BuildingShipScene.Instance.SelectedSpecification.ShipPartArchetype.GetSpriteByOrientation(orientation);
+                }
                 shipPartSprite.transform.rotation = orientation.GetRotation();
 
                 if (GetComponentInParent<ShipBuildingGrid>().CanBuildSpecificationsOnCoordinates(BuildingShipScene.Instance.SelectedSpecification, Coordinates))
@@ -103,7 +112,15 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if(LoadedSpecification != null)
         {
             shipPartSprite.gameObject.SetActive(true);
-            shipPartSprite.sprite = LoadedSpecification.ShipPartArchetype.GetSpriteByOrientation(LoadedSpecification.Orientation);
+            var specialAnimationSprites = LoadedSpecification.ShipPartArchetype.GetSpecialAnimationSpritesByOrientation(LoadedSpecification.Orientation);
+            if (specialAnimationSprites != null && specialAnimationSprites.Count > 0)
+            {
+                shipPartSprite.sprite = specialAnimationSprites.Last();
+            }
+            else
+            {
+                shipPartSprite.sprite = LoadedSpecification.ShipPartArchetype.GetSpriteByOrientation(LoadedSpecification.Orientation);
+            }
             shipPartSprite.transform.rotation = LoadedSpecification.Orientation.GetRotation();
         }
         else
