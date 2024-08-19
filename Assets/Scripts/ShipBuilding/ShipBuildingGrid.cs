@@ -77,6 +77,7 @@ public class ShipBuildingGrid : MonoBehaviour
         var directionsToTest = new List<Directions>() { Directions.RIGHT, Directions.LEFT, Directions.DOWN, Directions.UP };
         bool hasAHullNextToIt = false;
         bool hasAHullOpposedToIt = false;
+        bool cellInCoordinatesIsCurrentlySupportingSomething = false;
         foreach (var direction in directionsToTest) 
         {
             int cellIndexInThatDirection = GetIndexFromCoordinates(coordinates.GetCoordinatesInDirection(direction));
@@ -93,6 +94,10 @@ public class ShipBuildingGrid : MonoBehaviour
                     }
                     else
                     {
+                        if(cellInThatDirection.LoadedSpecification.Orientation == direction)
+                        {
+                            cellInCoordinatesIsCurrentlySupportingSomething = true;
+                        }
                         if (cellInThatDirection.LoadedSpecification.Orientation == direction.GetOpposite())
                         {
                             return false; //Don't put a new cell if something is pointing at it
@@ -109,6 +114,9 @@ public class ShipBuildingGrid : MonoBehaviour
 
         if(specifications.Orientation != Directions.NONE)
         {
+            if(cellInCoordinatesIsCurrentlySupportingSomething) //Don't allow replacement of a supporting cell with something that won't be a support
+                return false;
+
             if (!hasAHullOpposedToIt) //Cells pointing in a direction must have a hull opposed to them to "support" them
                 return false;
 
