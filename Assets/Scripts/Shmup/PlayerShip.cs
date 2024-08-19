@@ -73,6 +73,7 @@ public class PlayerShip : ShmupCharacter
             newPart.transform.localScale = Vector3.one;
             newPart.transform.localRotation = shipPart.Specification.Orientation.GetRotation();
             newPart.transform.localPosition = new Vector3(xDifference, -yDifference, 0) * GameConstants.SHIP_PARTS_SIZE;
+            newPart.GetComponent<SpriteRenderer>().sprite = shipPart.Specification.ShipPartArchetype.GetSpriteByOrientation(shipPart.Specification.Orientation);
         }
         _life = GameSession.Instance.CurrentShipBlueprint.GetTotalHull();
     }

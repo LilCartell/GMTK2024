@@ -20,5 +20,15 @@ MonoBehaviour:
   Cost: 1
   Hull: 1
   Icon: {fileID: 21300000, guid: d6a1d0294a2462540ac09f19ac865986, type: 3}
+  ShopIcon: {fileID: 21300000, guid: d6a1d0294a2462540ac09f19ac865986, type: 3}
+  SpritesByOrientation:
+  - Sprite: {fileID: 21300000, guid: d6a1d0294a2462540ac09f19ac865986, type: 3}
+    Orientation: 1
+  - Sprite: {fileID: 21300000, guid: 15a71b4cb84c9664b83eb231bf008700, type: 3}
+    Orientation: 3
+  - Sprite: {fileID: 21300000, guid: def0364480a9d654ca5bc340935b80e7, type: 3}
+    Orientation: 2
+  - Sprite: {fileID: 21300000, guid: 5037c156573030b44a3e1f6f83c39e99, type: 3}
+    Orientation: 4
   PossibleDirections: 01000000020000000300000004000000
   ShmupScenePrefab: {fileID: 7770851715450988982, guid: c4be26fb5ae1c7b41a0ca71394696973, type: 3}

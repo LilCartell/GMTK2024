@@ -59,8 +59,9 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
             if (BuildingShipScene.Instance.SelectedSpecification != null)
             {
                 shipPartSprite.gameObject.SetActive(true);
-                shipPartSprite.sprite = BuildingShipScene.Instance.SelectedSpecification.ShipPartArchetype.Icon;
-                shipPartSprite.transform.rotation = BuildingShipScene.Instance.SelectedSpecification.Orientation.GetRotation();
+                var orientation = BuildingShipScene.Instance.SelectedSpecification.Orientation;
+                shipPartSprite.sprite = BuildingShipScene.Instance.SelectedSpecification.ShipPartArchetype.GetSpriteByOrientation(orientation);
+                shipPartSprite.transform.rotation = orientation.GetRotation();
 
                 if (GetComponentInParent<ShipBuildingGrid>().CanBuildSpecificationsOnCoordinates(BuildingShipScene.Instance.SelectedSpecification, Coordinates))
                 {
@@ -102,7 +103,7 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if(LoadedSpecification != null)
         {
             shipPartSprite.gameObject.SetActive(true);
-            shipPartSprite.sprite = LoadedSpecification.ShipPartArchetype.Icon;
+            shipPartSprite.sprite = LoadedSpecification.ShipPartArchetype.GetSpriteByOrientation(LoadedSpecification.Orientation);
             shipPartSprite.transform.rotation = LoadedSpecification.Orientation.GetRotation();
         }
         else

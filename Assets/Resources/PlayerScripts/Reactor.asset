@@ -19,6 +19,16 @@ MonoBehaviour:
   Shield: 1
   Cost: 1
   Hull: 1
-  Icon: {fileID: 21300000, guid: 9af630104fe4b6547a44428385be13dd, type: 3}
+  Icon: {fileID: 21300000, guid: b9c060bdd831c61419d9927ddcb43c4c, type: 3}
+  ShopIcon: {fileID: 21300000, guid: b9c060bdd831c61419d9927ddcb43c4c, type: 3}
+  SpritesByOrientation:
+  - Sprite: {fileID: 21300000, guid: b9c060bdd831c61419d9927ddcb43c4c, type: 3}
+    Orientation: 1
+  - Sprite: {fileID: 21300000, guid: f9abd56b565f1cf4694afc1fcb7c328a, type: 3}
+    Orientation: 3
+  - Sprite: {fileID: 21300000, guid: 9af630104fe4b6547a44428385be13dd, type: 3}
+    Orientation: 2
+  - Sprite: {fileID: 21300000, guid: 2184af5e6db13434aabf8cc498b8378d, type: 3}
+    Orientation: 4
   PossibleDirections: 01000000020000000300000004000000
   ShmupScenePrefab: {fileID: 6868079622618384417, guid: 74379f8f28a947b49ae91b2bacc47e90, type: 3}

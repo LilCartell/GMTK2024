@@ -30,7 +30,7 @@ public class ShipPartSpecificationCell : MonoBehaviour, IPointerEnterHandler, IP
     public void LoadWithSpecification(ShipPartSpecification specification)
     {
         _specification = specification;
-        icon.sprite = specification.ShipPartArchetype.Icon;
+        icon.sprite = specification.ShipPartArchetype.ShopIcon;
         icon.transform.localRotation = specification.Orientation.GetRotation();
     }
 

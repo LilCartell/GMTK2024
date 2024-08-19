@@ -22,7 +22,7 @@ public class ShipPartSpecificationDescription : MonoBehaviour
         }
         else
         {
-            Icon.sprite = specification.ShipPartArchetype.Icon;
+            Icon.sprite = specification.ShipPartArchetype.ShopIcon;
             Icon.transform.localRotation = specification.Orientation.GetRotation();
             Name.text = specification.ShipPartArchetype.Name + " (" + specification.Orientation.ToString() + ")";
             Description.text = specification.ShipPartArchetype.Description;
