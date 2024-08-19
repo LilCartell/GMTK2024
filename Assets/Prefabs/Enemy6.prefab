@@ -2903,7 +2903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: firstShotOffset
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3739,7 +3739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1831659937527487934, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1831659937527487934, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3783,7 +3783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: firstShotOffset
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: rotationAmplitude

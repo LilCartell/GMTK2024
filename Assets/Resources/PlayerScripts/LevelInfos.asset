@@ -45,3 +45,11 @@ MonoBehaviour:
     Timer: 80
     CameraDistance: 60
     EnemyPrefab: {fileID: 5117174841205025737, guid: d64eef14bdac8d24c809439024198916, type: 3}
+  - Money: 90
+    Timer: 90
+    CameraDistance: 70
+    EnemyPrefab: {fileID: 4721010977936902138, guid: 845c87f376499694882eadfe9aaacec1, type: 3}
+  - Money: 100
+    Timer: 100
+    CameraDistance: 80
+    EnemyPrefab: {fileID: 8459996259122022614, guid: 978895d5bc5dcfd47b4471aa335fd04f, type: 3}
