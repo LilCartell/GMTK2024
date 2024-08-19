@@ -74,6 +74,11 @@ public class PlayerShip : ShmupCharacter
             newPart.transform.localRotation = shipPart.Specification.Orientation.GetRotation();
             newPart.transform.localPosition = new Vector3(xDifference, -yDifference, 0) * GameConstants.SHIP_PARTS_SIZE;
             newPart.GetComponent<SpriteRenderer>().sprite = shipPart.Specification.ShipPartArchetype.GetSpriteByOrientation(shipPart.Specification.Orientation);
+            var specialAnimationComponent = newPart.GetComponent<SpecialAnimationScript>();
+            if(specialAnimationComponent != null)
+            {
+                specialAnimationComponent.LoadWithSpritesAndDirection(shipPart.Specification.ShipPartArchetype.GetSpecialAnimationSpritesByOrientation(shipPart.Specification.Orientation), shipPart.Specification.Orientation);
+            }
         }
         _life = GameSession.Instance.CurrentShipBlueprint.GetTotalHull();
     }
@@ -83,29 +88,63 @@ public class PlayerShip : ShmupCharacter
         base.Update();
         Vector3 newPosition = this.transform.position;
         var pressedTravelDirections = new List<Directions>();
+        var releasedTravelDirections = new List<Directions>();
 
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             pressedTravelDirections.Add(Directions.UP);
         }
+        else
+        {
+            releasedTravelDirections.Add(Directions.UP);
+        }
+
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             pressedTravelDirections.Add(Directions.LEFT);
         }
+        else
+        {
+            releasedTravelDirections.Add(Directions.LEFT);
+        }
+
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             pressedTravelDirections.Add(Directions.DOWN);
         }
+        else
+        {
+            releasedTravelDirections.Add(Directions.DOWN);
+        }
+
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             pressedTravelDirections.Add(Directions.RIGHT);
         }
-        
-        foreach(var direction in pressedTravelDirections)
+        else
+        {
+            releasedTravelDirections.Add(Directions.RIGHT);
+        }
+
+        foreach (var direction in pressedTravelDirections)
         {
             newPosition += direction.GetNormalizedDirection() * (GameConstants.SHMUP_PLAYER_SPEED_FACTOR * Time.deltaTime
                 * GameSession.Instance.CurrentShipBlueprint.GetReactorsWithOrientation(direction.GetOpposite()) / GameSession.Instance.CurrentShipBlueprint.GetTotalWeight());
+        
+            foreach(var reactor in GetComponentsInChildren<Reactor>())
+            {
+                reactor.OnStartMovementInDirection(direction);
+            }
         }
+
+        foreach (var direction in releasedTravelDirections)
+        {
+            foreach (var reactor in GetComponentsInChildren<Reactor>())
+            {
+                reactor.OnStopMovementInDirection(direction);
+            }
+        }
+
         _rigidBody.MovePosition(newPosition);
 
         if(Input.GetMouseButton(0))

@@ -23,12 +23,24 @@ MonoBehaviour:
   ShopIcon: {fileID: 21300000, guid: b9c060bdd831c61419d9927ddcb43c4c, type: 3}
   SpritesByOrientation:
   - Sprite: {fileID: 21300000, guid: b9c060bdd831c61419d9927ddcb43c4c, type: 3}
+    SpecialAnimationSprites:
+    - {fileID: 21300000, guid: b3e1be8c15ab6ed4098d0a2029ca8599, type: 3}
+    - {fileID: 21300000, guid: fe7cc7a7ddeaecd44b1b55fb3ce0e721, type: 3}
     Orientation: 1
   - Sprite: {fileID: 21300000, guid: f9abd56b565f1cf4694afc1fcb7c328a, type: 3}
+    SpecialAnimationSprites:
+    - {fileID: 21300000, guid: 829c15c8f8a9e83489a7627a6d177c4a, type: 3}
+    - {fileID: 21300000, guid: 00528e9c77e7b38478781120fe60774f, type: 3}
     Orientation: 3
   - Sprite: {fileID: 21300000, guid: 9af630104fe4b6547a44428385be13dd, type: 3}
+    SpecialAnimationSprites:
+    - {fileID: 21300000, guid: 2f82fc554e9b0f844bd3b4dc757916db, type: 3}
+    - {fileID: 21300000, guid: 64c57d73bc4aa264ea91d31641b895c6, type: 3}
     Orientation: 2
   - Sprite: {fileID: 21300000, guid: 2184af5e6db13434aabf8cc498b8378d, type: 3}
+    SpecialAnimationSprites:
+    - {fileID: 21300000, guid: b6dedd8bb0bce824283dd2a088e7ea5b, type: 3}
+    - {fileID: 21300000, guid: 22b2871fe2fe71f41a44cfe62925720c, type: 3}
     Orientation: 4
   PossibleDirections: 01000000020000000300000004000000
   ShmupScenePrefab: {fileID: 6868079622618384417, guid: 74379f8f28a947b49ae91b2bacc47e90, type: 3}

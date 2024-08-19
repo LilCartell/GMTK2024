@@ -27,11 +27,22 @@ public class ShipPartArchetype : ScriptableObject
         }
         return Icon;
     }
+
+    public List<Sprite> GetSpecialAnimationSpritesByOrientation(Directions orientation)
+    {
+        foreach (var spriteByOrientation in SpritesByOrientation)
+        {
+            if (spriteByOrientation.Orientation == orientation)
+                return spriteByOrientation.SpecialAnimationSprites;
+        }
+        return null;
+    }
 }
 
 [Serializable]
 public class SpriteForOrientation
 {
     public Sprite Sprite;
+    public List<Sprite> SpecialAnimationSprites;
     public Directions Orientation;
 }
