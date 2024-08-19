@@ -10,6 +10,7 @@ public class ShmupScene : MonoBehaviour
     public GameObject leftBorder;
     public GameObject topBorder;
     public GameObject bottomBorder;
+    public GameObject background;
     public TextMeshProUGUI timerText;
 
     public static ShmupScene Instance { get { return _instance; } }
@@ -40,6 +41,7 @@ public class ShmupScene : MonoBehaviour
         leftBorder.transform.localPosition *= displacementRatio;
         topBorder.transform.localPosition *= displacementRatio;
         bottomBorder.transform.localPosition *= displacementRatio;
+        background.transform.localScale *= displacementRatio;
         playerShip.gameObject.SetActive(true);
         
         _remainingTime = currentLevelInfo.Timer;
