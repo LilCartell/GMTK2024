@@ -78,8 +78,9 @@ public class PlayerShip : ShmupCharacter
         _life = GameSession.Instance.CurrentShipBlueprint.GetTotalHull();
     }
 
-    public void Update()
+    public override void Update()
     {
+        base.Update();
         Vector3 newPosition = this.transform.position;
         var pressedTravelDirections = new List<Directions>();
 

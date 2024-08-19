@@ -25,21 +25,10 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        float damage = Damage;
-        var weakpointTouched = collision.GetComponent<WeakPoint>();
-        if (weakpointTouched != null)
-            damage *= weakpointTouched.DamageFactor;
-        var enemyTouched = collision.GetComponentInParent<Enemy>();
-        if(enemyTouched != null)
+        var characterTouched = collision.GetComponentInParent<ShmupCharacter>();
+        if(characterTouched != null)
         {
-            enemyTouched.TakeDamage(damage);
-            Destroy(gameObject);
-        }
-
-        var playerTouched = collision.GetComponentInParent<PlayerShip>();
-        if(playerTouched != null)
-        {
-            playerTouched.TakeDamage(damage);
+            characterTouched.TakeDamage(Damage, collision.gameObject);
             Destroy(gameObject);
         }
     }
