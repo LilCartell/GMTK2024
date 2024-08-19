@@ -15,8 +15,8 @@ MonoBehaviour:
   LevelsList:
   - Money: 10
     Timer: 10
-    CameraDistance: 10
-    EnemyPrefab: {fileID: 4717968234872606394, guid: 9c5348e929c1cbd4cb6cb1ba77da601c, type: 3}
+    CameraDistance: 50
+    EnemyPrefab: {fileID: 7831384921569569516, guid: 76056407ed3d9594fa9a884b3ddcaecf, type: 3}
   - Money: 20
     Timer: 20
     CameraDistance: 10
