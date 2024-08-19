@@ -18,22 +18,30 @@ MonoBehaviour:
     CameraDistance: 10
     EnemyPrefab: {fileID: 7831384921569569516, guid: 76056407ed3d9594fa9a884b3ddcaecf, type: 3}
   - Money: 20
-    Timer: 10
+    Timer: 20
     CameraDistance: 10
     EnemyPrefab: {fileID: 7831384921569569516, guid: 45e92ef6b775b2a4ab042dc10da32869, type: 3}
   - Money: 30
-    Timer: 10
+    Timer: 30
     CameraDistance: 15
     EnemyPrefab: {fileID: 7831384921569569516, guid: 53cddbdc8d7be1a428da00dc18b72a70, type: 3}
   - Money: 40
-    Timer: 10
+    Timer: 40
     CameraDistance: 20
     EnemyPrefab: {fileID: 7831384921569569516, guid: fb7edbc0db872bd4cb5acdbb75dbd2f1, type: 3}
   - Money: 50
-    Timer: 10
+    Timer: 50
     CameraDistance: 25
     EnemyPrefab: {fileID: 4717968234872606394, guid: 9c5348e929c1cbd4cb6cb1ba77da601c, type: 3}
   - Money: 60
-    Timer: 10
-    CameraDistance: 25
+    Timer: 60
+    CameraDistance: 40
     EnemyPrefab: {fileID: 8705528831165261363, guid: 58a06bc2f492d0f4e993972236fb623e, type: 3}
+  - Money: 70
+    Timer: 70
+    CameraDistance: 50
+    EnemyPrefab: {fileID: 274367822320805618, guid: d88524619ee754b4595a28ac4b9ab5bf, type: 3}
+  - Money: 80
+    Timer: 80
+    CameraDistance: 60
+    EnemyPrefab: {fileID: 5117174841205025737, guid: d64eef14bdac8d24c809439024198916, type: 3}

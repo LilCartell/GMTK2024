@@ -3194,11 +3194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: rotationSpeed
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3604961513918793582, guid: f89b3daae962e7c4a9fe04d154c33258, type: 3}
       propertyPath: rotationAmplitude
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4398,11 +4398,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 943046586423970722, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
       propertyPath: rotationSpeed
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943046586423970722, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
       propertyPath: rotationAmplitude
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3725649761367468644, guid: e932564b8dd7de04a88866425a70e0ce, type: 3}
       propertyPath: m_Name
