@@ -15,38 +15,41 @@ public abstract class ShmupCharacter : MonoBehaviour
 
     public void TakeDamage(float damage, GameObject damageOrigin)
     {
-        float realDamage = damage;
-        var weakpointTouched = damageOrigin.GetComponent<WeakPoint>();
-        if (weakpointTouched != null)
+        if(BuildingShipScene.Instance == null)
         {
-            damage *= weakpointTouched.DamageFactor;
-            if(!_nextBlinkingSpritesAreWeakpoints)
+            float realDamage = damage;
+            var weakpointTouched = damageOrigin.GetComponent<WeakPoint>();
+            if (weakpointTouched != null)
             {
-                _nextBlinkingSpritesAreWeakpoints = true;
-                _spritesToStartBlinkNextFrame.Clear(); //Weakpoints blink alone if touched
-            }
-            var spriteRenderer = weakpointTouched.GetComponent<SpriteRenderer>();
-            if(!_currentlyBlinkingWeakpoints.Contains(spriteRenderer))
-            {
-                _spritesToStartBlinkNextFrame.Add(spriteRenderer);
-            }
-        }
-        else
-        {
-            if(_currentlyBlinkingWeakpoints.Count == 0 && _currentlyBlinkingOtherSprites.Count == 0 && _spritesToStartBlinkNextFrame.Count == 0)
-            {
-                var allSpriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
-                foreach(var spriteRenderer in allSpriteRenderers)
+                damage *= weakpointTouched.DamageFactor;
+                if (!_nextBlinkingSpritesAreWeakpoints)
                 {
-                    if (spriteRenderer.GetComponentInParent<WeakPoint>() == null && !_currentlyBlinkingOtherSprites.Contains(spriteRenderer))
-                        _spritesToStartBlinkNextFrame.Add(spriteRenderer);
+                    _nextBlinkingSpritesAreWeakpoints = true;
+                    _spritesToStartBlinkNextFrame.Clear(); //Weakpoints blink alone if touched
                 }
-            }     
-        }
+                var spriteRenderer = weakpointTouched.GetComponent<SpriteRenderer>();
+                if (!_currentlyBlinkingWeakpoints.Contains(spriteRenderer))
+                {
+                    _spritesToStartBlinkNextFrame.Add(spriteRenderer);
+                }
+            }
+            else
+            {
+                if (_currentlyBlinkingWeakpoints.Count == 0 && _currentlyBlinkingOtherSprites.Count == 0 && _spritesToStartBlinkNextFrame.Count == 0)
+                {
+                    var allSpriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+                    foreach (var spriteRenderer in allSpriteRenderers)
+                    {
+                        if (spriteRenderer.GetComponentInParent<WeakPoint>() == null && !_currentlyBlinkingOtherSprites.Contains(spriteRenderer))
+                            _spritesToStartBlinkNextFrame.Add(spriteRenderer);
+                    }
+                }
+            }
 
-        _life -= damage;
-        if (_life < 0)
-            HandleDeath();
+            _life -= damage;
+            if (_life < 0)
+                HandleDeath();
+        }
     }
 
     public virtual void Update()
