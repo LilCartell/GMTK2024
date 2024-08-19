@@ -128,8 +128,7 @@ public class PlayerShip : ShmupCharacter
 
         foreach (var direction in pressedTravelDirections)
         {
-            newPosition += direction.GetNormalizedDirection() * (GameConstants.SHMUP_PLAYER_SPEED_FACTOR * Time.deltaTime
-                * GameSession.Instance.CurrentShipBlueprint.GetReactorsWithOrientation(direction.GetOpposite()) / GameSession.Instance.CurrentShipBlueprint.GetTotalWeight());
+            newPosition += direction.GetNormalizedDirection() * GameSession.Instance.CurrentShipBlueprint.GetTotalSpeed(direction) * Time.deltaTime; 
         
             foreach(var reactor in GetComponentsInChildren<Reactor>())
             {

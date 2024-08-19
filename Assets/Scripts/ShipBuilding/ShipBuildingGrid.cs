@@ -62,6 +62,11 @@ public class ShipBuildingGrid : MonoBehaviour
         GameSession.Instance.CurrentMoney = GameSession.Instance.GetCurrentLevelInfo().Money - GameSession.Instance.CurrentShipBlueprint.GetTotalCost();
     }
 
+    private void Start()
+    {
+        BuildingShipScene.Instance.shipStatsPanel.Refresh();
+    }
+
     public void Update()
     {
         remainingMoney.text = GameSession.Instance.CurrentMoney.ToString();

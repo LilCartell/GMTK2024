@@ -6,6 +6,7 @@ public class BuildingShipScene : MonoBehaviour
 {
     public ShipBuildingGrid buildingGrid;
     public ShipPartSpecificationDescription shipPartSpecificationDescription;
+    public ShipStatsPanel shipStatsPanel;
     public Button undoButton;
     public Button redoButton;
     public Transform enemyAnchor;

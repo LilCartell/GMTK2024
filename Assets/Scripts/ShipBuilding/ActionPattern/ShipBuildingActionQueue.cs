@@ -11,6 +11,7 @@ public class ShipBuildingActionQueue
         _doneActionsList.Add(action);
         action.Do();
         _undoneActionsList.Clear();
+        BuildingShipScene.Instance.shipStatsPanel.Refresh();
     }
 
     public void UndoLastAction()
@@ -19,6 +20,7 @@ public class ShipBuildingActionQueue
         _undoneActionsList.Add(lastAction);
         lastAction.Undo();
         _doneActionsList.Remove(lastAction);
+        BuildingShipScene.Instance.shipStatsPanel.Refresh();
     }
 
     public void RedoLastAction()
@@ -27,6 +29,7 @@ public class ShipBuildingActionQueue
         _doneActionsList.Add(lastAction);
         lastAction.Do();
         _undoneActionsList.Remove(lastAction);
+        BuildingShipScene.Instance.shipStatsPanel.Refresh();
     }
 
     public bool CanUndo()

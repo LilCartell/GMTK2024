@@ -44,6 +44,13 @@ public class ShipBlueprint
         return _shipParts.Sum(part => part.Specification.ShipPartArchetype.Cost);
     }
 
+    public float GetTotalSpeed(Directions direction)
+    {
+        return GameConstants.SHMUP_PLAYER_SPEED_FACTOR
+               *(GetReactorsWithOrientation(direction.GetOpposite()) 
+               / GetTotalWeight());
+    }
+
     public Coordinates GetCenterCoordinates()
     {
         float minX = _shipParts.Min(shipPart => shipPart.Coordinates.X);
