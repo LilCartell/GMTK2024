@@ -9,11 +9,13 @@ public class AutomaticGun : Gun
     private bool _firstShotIsDone = false;
     private float _timeBeforeAllowFirstShot;
     private bool _isRotationIncreasing;
+    private float _baseRotation;
     private float _currentRotationDegree;
 
     private void Awake()
     {
         _timeBeforeAllowFirstShot = firstShotOffset + timeBetweenShots;
+        _baseRotation = transform.rotation.eulerAngles.z;
     }
 
     public override void Update()
@@ -55,7 +57,7 @@ public class AutomaticGun : Gun
                     _isRotationIncreasing = true;
                 }
             }
-            this.transform.localRotation = Quaternion.Euler(0, 0, _currentRotationDegree);
+            this.transform.localRotation = Quaternion.Euler(0, 0, _baseRotation + _currentRotationDegree);
         }
     }
 }
