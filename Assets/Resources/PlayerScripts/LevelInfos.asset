@@ -17,39 +17,39 @@ MonoBehaviour:
     Timer: 10
     CameraDistance: 10
     EnemyPrefab: {fileID: 7831384921569569516, guid: 76056407ed3d9594fa9a884b3ddcaecf, type: 3}
-  - Money: 20
-    Timer: 20
+  - Money: 15
+    Timer: 10
     CameraDistance: 10
     EnemyPrefab: {fileID: 7831384921569569516, guid: 45e92ef6b775b2a4ab042dc10da32869, type: 3}
-  - Money: 30
-    Timer: 30
+  - Money: 20
+    Timer: 20
     CameraDistance: 15
     EnemyPrefab: {fileID: 7831384921569569516, guid: 53cddbdc8d7be1a428da00dc18b72a70, type: 3}
-  - Money: 40
-    Timer: 40
-    CameraDistance: 20
+  - Money: 25
+    Timer: 30
+    CameraDistance: 15
     EnemyPrefab: {fileID: 7831384921569569516, guid: fb7edbc0db872bd4cb5acdbb75dbd2f1, type: 3}
-  - Money: 50
+  - Money: 30
+    Timer: 40
+    CameraDistance: 15
+    EnemyPrefab: {fileID: 4717968234872606394, guid: 9c5348e929c1cbd4cb6cb1ba77da601c, type: 3}
+  - Money: 35
+    Timer: 45
+    CameraDistance: 20
+    EnemyPrefab: {fileID: 8705528831165261363, guid: 58a06bc2f492d0f4e993972236fb623e, type: 3}
+  - Money: 45
     Timer: 50
     CameraDistance: 25
-    EnemyPrefab: {fileID: 4717968234872606394, guid: 9c5348e929c1cbd4cb6cb1ba77da601c, type: 3}
-  - Money: 60
+    EnemyPrefab: {fileID: 274367822320805618, guid: d88524619ee754b4595a28ac4b9ab5bf, type: 3}
+  - Money: 55
+    Timer: 60
+    CameraDistance: 25
+    EnemyPrefab: {fileID: 5117174841205025737, guid: d64eef14bdac8d24c809439024198916, type: 3}
+  - Money: 65
+    Timer: 60
+    CameraDistance: 30
+    EnemyPrefab: {fileID: 4721010977936902138, guid: 845c87f376499694882eadfe9aaacec1, type: 3}
+  - Money: 70
     Timer: 60
     CameraDistance: 40
-    EnemyPrefab: {fileID: 8705528831165261363, guid: 58a06bc2f492d0f4e993972236fb623e, type: 3}
-  - Money: 70
-    Timer: 70
-    CameraDistance: 50
-    EnemyPrefab: {fileID: 274367822320805618, guid: d88524619ee754b4595a28ac4b9ab5bf, type: 3}
-  - Money: 80
-    Timer: 80
-    CameraDistance: 60
-    EnemyPrefab: {fileID: 5117174841205025737, guid: d64eef14bdac8d24c809439024198916, type: 3}
-  - Money: 90
-    Timer: 90
-    CameraDistance: 70
-    EnemyPrefab: {fileID: 4721010977936902138, guid: 845c87f376499694882eadfe9aaacec1, type: 3}
-  - Money: 100
-    Timer: 100
-    CameraDistance: 80
     EnemyPrefab: {fileID: 8459996259122022614, guid: 978895d5bc5dcfd47b4471aa335fd04f, type: 3}
