@@ -31,19 +31,19 @@ MonoBehaviour:
     EnemyPrefab: {fileID: 4717968234872606394, guid: 9c5348e929c1cbd4cb6cb1ba77da601c, type: 3}
   - Money: 35
     Timer: 45
-    CameraDistance: 30
+    CameraDistance: 20
     EnemyPrefab: {fileID: 8705528831165261363, guid: 58a06bc2f492d0f4e993972236fb623e, type: 3}
   - Money: 45
     Timer: 50
-    CameraDistance: 35
+    CameraDistance: 30
     EnemyPrefab: {fileID: 274367822320805618, guid: d88524619ee754b4595a28ac4b9ab5bf, type: 3}
   - Money: 55
     Timer: 60
-    CameraDistance: 35
+    CameraDistance: 30
     EnemyPrefab: {fileID: 5117174841205025737, guid: d64eef14bdac8d24c809439024198916, type: 3}
   - Money: 65
     Timer: 60
-    CameraDistance: 35
+    CameraDistance: 30
     EnemyPrefab: {fileID: 4721010977936902138, guid: 845c87f376499694882eadfe9aaacec1, type: 3}
   - Money: 70
     Timer: 60
