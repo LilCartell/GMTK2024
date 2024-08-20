@@ -9,6 +9,11 @@ public class GameOverScene : MonoBehaviour
         GameSession.Instance.IsLoadingLose = false;
     }
 
+    public void Start()
+    {
+        SoundManager.Instance.PlayMusic(SoundManager.Instance.GameOverSceneMusic);
+    }
+
     public void Next()
     {
         SceneManager.LoadScene("BuildingShipScene");

@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185503062410691581}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5438342897406503878}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3605398716481894483
 AudioSource:
@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -152,6 +152,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6961574939212429171}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -160,7 +161,6 @@ Transform:
   - {fileID: 3315072034895216018}
   - {fileID: 6986056636737878035}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5227152385980122627
 MonoBehaviour:
@@ -176,15 +176,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicsSource: {fileID: 6084299829661570725}
   SoundEffectsSource: {fileID: 3605398716481894483}
-  TitleScreenMusic: {fileID: 8300000, guid: b0180dc6db0de6243a78b5233a757a42, type: 3}
-  IntroductionMusic: {fileID: 0}
-  LevelsMusic: {fileID: 8300000, guid: 61d8c3e1781885946a31901e5fec7cd2, type: 3}
-  EndMusic: {fileID: 8300000, guid: b0180dc6db0de6243a78b5233a757a42, type: 3}
-  SwapSound: {fileID: 8300000, guid: 4ca60b4287a3698488cd09c21a15eea0, type: 3}
-  RockPushSound: {fileID: 8300000, guid: 52ecb2ee26fa53b44aeb760e79603f08, type: 3}
-  RockFallingSound: {fileID: 8300000, guid: 70aea60c64425bc48880bb902f6ee334, type: 3}
-  PushyFallingSound: {fileID: 8300000, guid: caca1851edeeb1c4b8f4c118e197d2d9, type: 3}
-  ReachedDoorSound: {fileID: 8300000, guid: e7ac6169c8e866743b13595ab4d94cfc, type: 3}
+  TitleSceneMusic: {fileID: 8300000, guid: 5b9a15d38e437fc468a7a2e0ae147316, type: 3}
+  BuildingSceneMusic: {fileID: 8300000, guid: 99dab19827df5814fb75d32ab2c2ba76, type: 3}
+  ShmupSceneMusic: {fileID: 8300000, guid: 4ec14b8ac7e55f64ea18f812ef12ac90, type: 3}
+  GameOverSceneMusic: {fileID: 8300000, guid: 018cd50c109e082458b7f537cc7baa12, type: 3}
+  BriefingSceneMusic: {fileID: 8300000, guid: 78900d6e4a4f1284d963f8301aa667cd, type: 3}
+  ClicSound: {fileID: 8300000, guid: cf6cfa5608cde1c4aae376988ccdb6cd, type: 3}
+  PlaceCellSound: {fileID: 8300000, guid: a4fa9f2ec8124814ca43d0575227afae, type: 3}
 --- !u!1 &6964076173194460981
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,13 +207,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6964076173194460981}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5438342897406503878}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6084299829661570725
 AudioSource:
@@ -228,7 +226,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

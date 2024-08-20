@@ -40,6 +40,7 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             if (_canPlace)
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.PlaceCellSound);
                 BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new PlaceSpecInCellsShipBuildingAction(BuildingShipScene.Instance.SelectedSpecification, this));
             }
         }

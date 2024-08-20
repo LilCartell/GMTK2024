@@ -46,6 +46,10 @@ public class ShmupScene : MonoBehaviour
         
         _remainingTime = currentLevelInfo.Timer;
     }
+    public void Start()
+    {
+        SoundManager.Instance.PlayMusic(SoundManager.Instance.ShmupSceneMusic);
+    }
 
     private void Update()
     {

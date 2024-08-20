@@ -42,6 +42,11 @@ public class BuildingShipScene : MonoBehaviour
         enemyToPreview.transform.localScale = Vector3.one;
     }
 
+    public void Start()
+    {
+        SoundManager.Instance.PlayMusic(SoundManager.Instance.BuildingSceneMusic);
+    }
+
     private void Update()
     {
         undoButton.interactable = ShipBuildingActionQueue.CanUndo();
@@ -50,27 +55,32 @@ public class BuildingShipScene : MonoBehaviour
 
     public void Undo()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         ShipBuildingActionQueue.UndoLastAction();
     }
 
     public void Redo()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         ShipBuildingActionQueue.RedoLastAction();
     }
 
     public void Confirm()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         GameSession.Instance.CurrentShipBlueprint = buildingGrid.GetShipBlueprint();
         SceneManager.LoadScene("ShmupScene");
     }
 
     public void Delete()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         IsInDeleteMode = true;
     }
 
     public void Clear()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         ShipBuildingActionQueue.QueueAndDoAction(new ClearGridShipBuildingAction());
     }
 
@@ -81,12 +91,14 @@ public class BuildingShipScene : MonoBehaviour
 
     public void Preview()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         mainUICanvas.gameObject.SetActive(false);
         previewCanvas.gameObject.SetActive(true);
     }
 
     public void CancelPreview()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         mainUICanvas.gameObject.SetActive(true);
         previewCanvas.gameObject.SetActive(false);
     }

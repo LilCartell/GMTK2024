@@ -5,16 +5,14 @@ public class SoundManager : MonoBehaviour
 	public AudioSource MusicsSource;
 	public AudioSource SoundEffectsSource;
 
-	public AudioClip TitleScreenMusic;
-	public AudioClip IntroductionMusic;
-	public AudioClip LevelsMusic;
-	public AudioClip EndMusic;
+	public AudioClip TitleSceneMusic;
+	public AudioClip BuildingSceneMusic;
+	public AudioClip ShmupSceneMusic;
+	public AudioClip GameOverSceneMusic;
+	public AudioClip BriefingSceneMusic;
 
-	public AudioClip SwapSound;
-	public AudioClip RockPushSound;
-	public AudioClip RockFallingSound;
-	public AudioClip PushyFallingSound;
-	public AudioClip ReachedDoorSound;
+	public AudioClip ClicSound;
+	public AudioClip PlaceCellSound;
 
 	public static SoundManager Instance { get; private set; }
 

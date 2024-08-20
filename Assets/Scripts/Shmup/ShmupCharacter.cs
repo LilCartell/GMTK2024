@@ -7,6 +7,8 @@ public abstract class ShmupCharacter : MonoBehaviour
     public const float BLINK_ITERATION_DURATION = 0.2f;
     public const int BLINK_ITERATIONS_TO_DO = 3;
 
+    public AudioSource TakeDamageAudioSource;
+
     private bool _nextBlinkingSpritesAreWeakpoints;
     private List<SpriteRenderer> _currentlyBlinkingWeakpoints = new List<SpriteRenderer>();
     private List<SpriteRenderer> _currentlyBlinkingOtherSprites = new List<SpriteRenderer>();
@@ -17,6 +19,8 @@ public abstract class ShmupCharacter : MonoBehaviour
     {
         if(BuildingShipScene.Instance == null)
         {
+            if (TakeDamageAudioSource != null)
+                TakeDamageAudioSource.Play();
             float realDamage = damage;
             var weakpointTouched = damageOrigin.GetComponent<WeakPoint>();
             if (weakpointTouched != null)

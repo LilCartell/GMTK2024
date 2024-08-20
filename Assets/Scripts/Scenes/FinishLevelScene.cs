@@ -11,6 +11,7 @@ public class FinishLevelScene : MonoBehaviour
 
     public void Next()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         SceneManager.LoadScene("BuildingShipScene");
     }
 }
