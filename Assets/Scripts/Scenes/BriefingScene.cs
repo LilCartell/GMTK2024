@@ -29,14 +29,16 @@ public class BriefingScene : MonoBehaviour
             Debug.LogError("Not enough briefings");
             GameSession.Instance.CurrentBriefing = Briefings.Count - 1;
         }
-        _briefingToPlay = Briefings[GameSession.Instance.CurrentBriefing++];
-        _currentBriefingIndex = -1;
-        NextSpeechBubble();
+
     }
 
     public void Start()
     {
-        SoundManager.Instance.PlayMusic(SoundManager.Instance.BriefingSceneMusic);
+        if(GameSession.Instance.CurrentBriefing > 0)
+            SoundManager.Instance.PlayMusic(SoundManager.Instance.BriefingSceneMusic);
+        _briefingToPlay = Briefings[GameSession.Instance.CurrentBriefing++];
+        _currentBriefingIndex = -1;
+        NextSpeechBubble();
     }
 
     public void Update()
