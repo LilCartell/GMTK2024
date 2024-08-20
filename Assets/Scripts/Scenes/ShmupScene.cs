@@ -12,6 +12,7 @@ public class ShmupScene : MonoBehaviour
     public GameObject bottomBorder;
     public GameObject background;
     public TextMeshProUGUI timerText;
+    public GameObject cheatButton;
 
     public static ShmupScene Instance { get { return _instance; } }
     private static ShmupScene _instance;
@@ -21,7 +22,14 @@ public class ShmupScene : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        foreach(Transform child in enemyAnchor)
+
+        #if UNITY_EDITOR
+                cheatButton.gameObject.SetActive(true);
+        #else
+                cheatButton.gameObject.SetActive(false);
+        #endif
+
+        foreach (Transform child in enemyAnchor)
         {
             Destroy(child.gameObject);
         }
@@ -49,6 +57,11 @@ public class ShmupScene : MonoBehaviour
     public void Start()
     {
         SoundManager.Instance.PlayMusic(SoundManager.Instance.ShmupSceneMusic);
+    }
+
+    public void CheatWin()
+    {
+        GameSession.Instance.Win();
     }
 
     private void Update()

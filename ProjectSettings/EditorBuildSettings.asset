@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: ee1f2281c846bc9498efca1016c40926
+  - enabled: 1
+    path: Assets/Scenes/BriefingScene.unity
+    guid: 2f5845e7c2d98d3438fed93228e748e4
+  - enabled: 1
     path: Assets/Scenes/BuildingShipScene.unity
     guid: 7423f4a5862dfc04f95b76768586b99d
   - enabled: 1
@@ -17,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinishGameScene.unity
     guid: 74968eb001867594eafc1d2c7c29e524
-  - enabled: 1
-    path: Assets/Scenes/FinishLevelScene.unity
-    guid: 2db20a6ec4abb69488c9a9bedc2947c1
   m_configObjects: {}
