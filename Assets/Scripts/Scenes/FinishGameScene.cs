@@ -12,6 +12,7 @@ public class FinishGameScene : MonoBehaviour
     public void BackToBeginning()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
+        GameSession.Instance.CurrentBriefing = 0;
         GameSession.Instance.CurrentLevel = 0;
         GameSession.Instance.CurrentShipBlueprint = null;
         SceneManager.LoadScene("TitleScene");
