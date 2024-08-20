@@ -69,7 +69,7 @@ public class ShipBuildingGrid : MonoBehaviour
 
     public void Update()
     {
-        remainingMoney.text = GameSession.Instance.CurrentMoney.ToString();
+        remainingMoney.text = GameSession.Instance.CurrentMoney.ToString("00");
     }
 
     public List<ShipBuildingCell> GetShipBuildingCells()
