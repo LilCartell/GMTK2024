@@ -43,7 +43,7 @@ public class ShmupScene : MonoBehaviour
         var enemyForThisLevel = Instantiate(currentLevelInfo.EnemyPrefab);
         enemyForThisLevel.transform.SetParent(enemyAnchor);
         _enemy = enemyForThisLevel.GetComponent<Enemy>();
-        enemyForThisLevel.transform.localPosition = _enemy.GetCenterOffset();
+        enemyForThisLevel.transform.localPosition = -_enemy.GetCenterOffset();
         enemyForThisLevel.transform.localRotation = Quaternion.identity;
         enemyForThisLevel.transform.localScale = Vector3.one;
         float baseCameraDistance = Mathf.Abs(sceneCamera.transform.localPosition.z);
