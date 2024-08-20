@@ -17,6 +17,7 @@ public class BuildingShipScene : MonoBehaviour
     public Camera previewCamera;
     public Canvas mainUICanvas;
     public Canvas previewCanvas;
+    public Transform previewBackground;
 
     public Button cheatButton;
 
@@ -38,7 +39,11 @@ public class BuildingShipScene : MonoBehaviour
         cheatButton.gameObject.SetActive(false);
     #endif
         var currentLevelInfo = GameSession.Instance.GetCurrentLevelInfo();
-        previewCamera.transform.localPosition = new Vector3(0, 0, -currentLevelInfo.CameraDistance);
+
+        float baseCameraDistance = Mathf.Abs(previewCamera.transform.localPosition.z);
+        previewCamera.transform.localPosition = new Vector3(0, 0, -Mathf.Abs(currentLevelInfo.CameraDistance));
+        float displacementRatio = Mathf.Abs(currentLevelInfo.CameraDistance / baseCameraDistance);
+        previewBackground.localScale *= displacementRatio;
         var enemyToPreview = Instantiate(currentLevelInfo.EnemyPrefab);
         enemyToPreview.transform.SetParent(enemyAnchor);
         enemyToPreview.transform.localPosition = -enemyToPreview.GetComponent<Enemy>().GetCenterOffset();
