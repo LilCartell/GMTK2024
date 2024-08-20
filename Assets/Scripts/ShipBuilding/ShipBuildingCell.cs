@@ -81,6 +81,7 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             if (isDeletable && _canDelete && LoadedSpecification != null)
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
                 BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new DeleteSpecsFromCellShipBuildingAction(LoadedSpecification, this));
             }
         }

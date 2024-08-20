@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShmupScene : MonoBehaviour
 {
@@ -62,6 +63,12 @@ public class ShmupScene : MonoBehaviour
     public void CheatWin()
     {
         GameSession.Instance.Win();
+    }
+
+    public void TryAgain()
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
+        SceneManager.LoadScene("BuildingShipScene");
     }
 
     private void Update()

@@ -14,7 +14,7 @@ public class FinishGameScene : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         GameSession.Instance.CurrentLevel = 0;
         GameSession.Instance.CurrentShipBlueprint = null;
-        SceneManager.LoadScene("BuildingShipScene");
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void CloseGame()

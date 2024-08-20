@@ -10,6 +10,7 @@ public class TitleScene : MonoBehaviour
 
     public void Play()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
         SceneManager.LoadScene("BriefingScene");
     }
 }
