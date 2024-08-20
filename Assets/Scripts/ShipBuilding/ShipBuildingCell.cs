@@ -27,25 +27,6 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Coordinates = coordinates;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (BuildingShipScene.Instance.IsInDeleteMode)
-        {
-            if (isDeletable && LoadedSpecification != null)
-            {
-                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new DeleteSpecsFromCellShipBuildingAction(LoadedSpecification, this));
-            }
-        }
-        else
-        {
-            if (_canPlace)
-            {
-                SoundManager.Instance.PlaySound(SoundManager.Instance.PlaceCellSound);
-                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new PlaceSpecInCellsShipBuildingAction(BuildingShipScene.Instance.SelectedSpecification, this));
-            }
-        }
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(BuildingShipScene.Instance.IsInDeleteMode)
@@ -92,6 +73,25 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerExit(PointerEventData eventData)
     {
         ResetUI();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (BuildingShipScene.Instance.IsInDeleteMode)
+        {
+            if (isDeletable && _canDelete && LoadedSpecification != null)
+            {
+                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new DeleteSpecsFromCellShipBuildingAction(LoadedSpecification, this));
+            }
+        }
+        else
+        {
+            if (_canPlace)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.PlaceCellSound);
+                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new PlaceSpecInCellsShipBuildingAction(BuildingShipScene.Instance.SelectedSpecification, this));
+            }
+        }
     }
 
     public void PlaceSpecInCell(ShipPartSpecification specifications)
