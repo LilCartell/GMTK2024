@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShmupScene : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class ShmupScene : MonoBehaviour
     public GameObject background;
     public TextMeshProUGUI timerText;
     public GameObject cheatButton;
+    public Slider healthBar;
+
+    private Enemy _enemy;
 
     public static ShmupScene Instance { get { return _instance; } }
     private static ShmupScene _instance;
@@ -38,7 +42,8 @@ public class ShmupScene : MonoBehaviour
         playerShip.gameObject.SetActive(false); //Creates a collision bug during enemy instantiation otherwise
         var enemyForThisLevel = Instantiate(currentLevelInfo.EnemyPrefab);
         enemyForThisLevel.transform.SetParent(enemyAnchor);
-        enemyForThisLevel.transform.localPosition = -enemyForThisLevel.GetComponent<Enemy>().GetCenterOffset();
+        _enemy = enemyForThisLevel.GetComponent<Enemy>();
+        enemyForThisLevel.transform.localPosition = _enemy.GetCenterOffset();
         enemyForThisLevel.transform.localRotation = Quaternion.identity;
         enemyForThisLevel.transform.localScale = Vector3.one;
         float baseCameraDistance = Mathf.Abs(sceneCamera.transform.localPosition.z);
@@ -80,5 +85,6 @@ public class ShmupScene : MonoBehaviour
             _remainingTime = 0;
             GameSession.Instance.Lose();
         }
+        healthBar.value = _enemy.CurrentLife / _enemy.StartingLife;
     }
 }

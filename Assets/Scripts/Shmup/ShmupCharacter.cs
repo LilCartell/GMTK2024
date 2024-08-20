@@ -9,11 +9,13 @@ public abstract class ShmupCharacter : MonoBehaviour
 
     public AudioSource TakeDamageAudioSource;
 
+    public float CurrentLife { get; protected set; }
+
+
     private bool _nextBlinkingSpritesAreWeakpoints;
     private List<SpriteRenderer> _currentlyBlinkingWeakpoints = new List<SpriteRenderer>();
     private List<SpriteRenderer> _currentlyBlinkingOtherSprites = new List<SpriteRenderer>();
     protected List<SpriteRenderer> _spritesToStartBlinkNextFrame = new List<SpriteRenderer>();
-    protected float _life;
 
     public void TakeDamage(float damage, GameObject damageOrigin)
     {
@@ -50,8 +52,8 @@ public abstract class ShmupCharacter : MonoBehaviour
                 }
             }
 
-            _life -= damage;
-            if (_life < 0)
+            CurrentLife -= damage;
+            if (CurrentLife < 0)
                 HandleDeath();
         }
     }

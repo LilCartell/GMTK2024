@@ -80,7 +80,7 @@ public class PlayerShip : ShmupCharacter
                 specialAnimationComponent.LoadWithSpritesAndDirection(shipPart.Specification.ShipPartArchetype.GetSpecialAnimationSpritesByOrientation(shipPart.Specification.Orientation), shipPart.Specification.Orientation);
             }
         }
-        _life = GameSession.Instance.CurrentShipBlueprint.GetTotalHull();
+        CurrentLife = GameSession.Instance.CurrentShipBlueprint.GetTotalHull();
     }
 
     public void FixedUpdate()

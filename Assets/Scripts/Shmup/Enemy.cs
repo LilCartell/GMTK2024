@@ -6,7 +6,7 @@ public class Enemy : ShmupCharacter
 
     private void Awake()
     {
-        _life = StartingLife;
+        CurrentLife = StartingLife;
     }
 
     protected override void HandleDeath()
