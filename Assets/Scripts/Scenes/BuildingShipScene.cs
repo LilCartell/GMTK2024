@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,8 +8,11 @@ public class BuildingShipScene : MonoBehaviour
     public ShipBuildingGrid buildingGrid;
     public ShipPartSpecificationDescription shipPartSpecificationDescription;
     public ShipStatsPanel shipStatsPanel;
+    public ShipPartSpecificationList partSpecificationList;
     public Button undoButton;
     public Button redoButton;
+    public Button clearButton;
+    public Button deleteButton;
     public Transform enemyAnchor;
     public Camera previewCamera;
     public Canvas mainUICanvas;
@@ -51,6 +55,7 @@ public class BuildingShipScene : MonoBehaviour
     {
         undoButton.interactable = ShipBuildingActionQueue.CanUndo();
         redoButton.interactable = ShipBuildingActionQueue.CanRedo();
+        clearButton.interactable = buildingGrid.GetShipBuildingCells().Count(cell => cell.LoadedSpecification != null) > 1;
     }
 
     public void Undo()
@@ -75,7 +80,8 @@ public class BuildingShipScene : MonoBehaviour
     public void Delete()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.ClicSound);
-        IsInDeleteMode = true;
+        partSpecificationList.OnDeleteModeActivated();
+        SetDeleteMode(true);
     }
 
     public void Clear()
@@ -106,12 +112,18 @@ public class BuildingShipScene : MonoBehaviour
     public void SetSelectedSpecification(ShipPartSpecification selectedSpecification)
     {
         SelectedSpecification = selectedSpecification;
-        IsInDeleteMode = false;
+        SetDeleteMode(false);
         RefreshSpecificationDescription();
     }
     
     public void RefreshSpecificationDescription()
     {
         shipPartSpecificationDescription.LoadWithSpecification(SelectedSpecification);
+    }
+
+    private void SetDeleteMode(bool isDeleteMode)
+    {
+        IsInDeleteMode = isDeleteMode;
+        deleteButton.interactable = !isDeleteMode;
     }
 }

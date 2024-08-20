@@ -142,10 +142,27 @@ public class ShipBuildingGrid : MonoBehaviour
 
     public bool CanDeleteCell(ShipBuildingCell cell)
     {
-        if(cell.LoadedSpecification != null) //In progress, delete is deactivated for now because it creates complicated edge cases
+        if (cell.LoadedSpecification != null)
         {
             if (cell.LoadedSpecification.ShipPartArchetype.ShipPartType != ShipPartType.HULL)
                 return true;
+
+            var directionsToTest = new List<Directions>() { Directions.RIGHT, Directions.LEFT, Directions.DOWN, Directions.UP };
+
+            foreach (var direction in directionsToTest)
+            {
+                int cellIndexInThatDirection = GetIndexFromCoordinates(cell.Coordinates.GetCoordinatesInDirection(direction));
+                if (cellIndexInThatDirection > 0 && cellIndexInThatDirection < _buildingCells.Count)
+                {
+                    var cellInThatDirection = _buildingCells[cellIndexInThatDirection];
+                    if(cellInThatDirection.LoadedSpecification != null && cellInThatDirection.LoadedSpecification.Orientation == direction)
+                    {
+                        return false; //Cell is currently a support for a gun or reactor
+                    }
+                }
+            }
+
+            return IsShipConnectedWithoutCell(cell);
         }
         return false;
     }
@@ -198,7 +215,8 @@ public class ShipBuildingGrid : MonoBehaviour
                     var cellInThatDirection = _buildingCells[cellIndexInThatDirection];
                     if(cellInThatDirection != cellToTest && cellInThatDirection.LoadedSpecification !=null
                         && cellInThatDirection.LoadedSpecification.ShipPartArchetype.ShipPartType == ShipPartType.HULL
-                        && !alreadyTestedCoordinates.Contains(cellInThatDirection.Coordinates))
+                        && !alreadyTestedCoordinates.Contains(cellInThatDirection.Coordinates)
+                        && !queueToTestConnection.Contains(cellInThatDirection.Coordinates))
                     {
                         queueToTestConnection.Add(cellInThatDirection.Coordinates);
                     }
@@ -208,7 +226,6 @@ public class ShipBuildingGrid : MonoBehaviour
 
         return (hullsConnected == hullShipParts);
     }
-
 
     private Coordinates GetCoordinatesFromIndex(int index)
     {

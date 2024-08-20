@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ShipPartArchetypeList : MonoBehaviour
+public class ShipPartSpecificationList : MonoBehaviour
 {
     public GameObject listRoot;
 
@@ -20,6 +21,15 @@ public class ShipPartArchetypeList : MonoBehaviour
                     }
                 }
             }
+        }
+        listRoot.GetComponentInChildren<Toggle>().isOn = true; //Enable first toggle
+    }
+
+    public void OnDeleteModeActivated()
+    {
+        foreach(var toggle in listRoot.GetComponentsInChildren<Toggle>())
+        {
+            toggle.isOn = false;
         }
     }
 }

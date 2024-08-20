@@ -33,7 +33,7 @@ public class ShipBuildingCell : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             if (isDeletable && LoadedSpecification != null)
             {
-                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new DeleteSpecsFromCellShipBuildingAction(BuildingShipScene.Instance.SelectedSpecification, this));
+                BuildingShipScene.Instance.ShipBuildingActionQueue.QueueAndDoAction(new DeleteSpecsFromCellShipBuildingAction(LoadedSpecification, this));
             }
         }
         else

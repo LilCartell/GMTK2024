@@ -20,7 +20,11 @@ public class ShipPartSpecificationDescription : MonoBehaviour
         }
         else
         {
-            Name.text = specification.ShipPartArchetype.Name + " (" + specification.Orientation.ToString() + ")";
+            Name.text = specification.ShipPartArchetype.Name;
+            if(specification.Orientation != Directions.NONE)
+            {
+                Name.text += " (" + specification.Orientation.ToString() + ")";
+            }
             Description.text = specification.ShipPartArchetype.Description;
             Weight.text = specification.ShipPartArchetype.Weight.ToString();
             Cost.text = specification.ShipPartArchetype.Cost.ToString();
