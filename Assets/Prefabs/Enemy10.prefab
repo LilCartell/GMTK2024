@@ -40457,7 +40457,7 @@ PrefabInstance:
     - target: {fileID: 8375064272486343086, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
       propertyPath: projectileStartingPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5822426032139876357}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40466,6 +40466,11 @@ PrefabInstance:
 --- !u!4 &1175343769404914114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5086243559630974334, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
+  m_PrefabInstance: {fileID: 6258419633879323836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5822426032139876357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 438879820837432505, guid: 3c8dd7a1243a68e4a8c8291bc0574f96, type: 3}
   m_PrefabInstance: {fileID: 6258419633879323836}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6258676197802722114
