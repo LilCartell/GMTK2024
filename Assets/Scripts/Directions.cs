@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿using System.ComponentModel;
+using UnityEngine;
 
 public enum Directions
 {
     NONE,
+    [Description("Up")]
     UP,
+    [Description("Down")]
     DOWN,
+    [Description("Left")]
     LEFT,
+    [Description("Right")]
     RIGHT
 }
 
@@ -57,6 +62,23 @@ public static class DirectionsExtension
                 return Vector3.right;
             default:
                 return Vector3.zero;
+        }
+    }
+
+    public static string GetDirectionFriendlyName(this Directions direction)
+    {
+        switch (direction)
+        {
+            case Directions.UP:
+                return "Up";
+            case Directions.DOWN:
+                return "Down";
+            case Directions.LEFT:
+                return "Left";
+            case Directions.RIGHT:
+                return "Right";
+            default:
+                return "";
         }
     }
 }
