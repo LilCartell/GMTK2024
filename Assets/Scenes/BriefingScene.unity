@@ -345,37 +345,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Briefings:
   - SpeechBubbles:
-    - Welcome to the earth defenders coalition. You are just in time !
-    - There's an asteroid about to crash on earth and kill us all !
-    - Build a ship, destroy the asteroid and save us !
-    - Build a ship, destroy the asteroid and save us !
-    - WRECK THE ROCK !
+    - Welcome to the Earth Defenders Coalition. You are just in time!
+    - "There\u2019s an asteroid about to crash on Earth and kill us all!"
+    - Build a ship, destroy the asteroid, and save us!
+    - WRECK THE ROCK!
   - SpeechBubbles:
-    - "Good job boy, but don\u2019t celebrate just yet."
-    - "A bigger one. And it has a\u2026 Heart ?!"
-    - Tech guys think that it's a weak point, you should fire at it at all costs.
-      Now go !
+    - "Good job boy, but don\u2019t celebrate just yet. There\u2019s another one."
+    - "A bigger one. And it has a\u2026 heart?!"
+    - "Tech guys think that it\u2019s a weak point. You should fire at it at all
+      costs. Now go! "
   - SpeechBubbles:
     - "We don\u2019t know where they keep coming from."
-    - Some scientist says that is the same crew as the one that killed dinosaurs
-      and they come to finish the job.
+    - "Some scientist says it\u2019s the same crew that killed the dinosaurs and
+      they\u2019ve come to finish the job."
   - SpeechBubbles:
     - "Aaaaaand there\u2019s another one. Go for it."
   - SpeechBubbles:
-    - Personally I think that this is giants playing baseball from the asteroid belt
-      and we are right on the way.
+    - Personally, I think these are giants playing baseball from the asteroid belt
+      and we are right in the way.
   - SpeechBubbles:
-    - "Aaaaaand there\u2019s another one. Go for it."
+    - The janitor thinks these are space chickens that saw what we do to chickens
+      here on Earth and they are looking for revenge.
   - SpeechBubbles:
-    - The janitor thinks that these are space chickens that saw what we do to chickens
-      here on earth and they are looking for revenge.
-  - SpeechBubbles:
-    - My son says that those are just some stupid rocks and to stop bothering him.
-  - SpeechBubbles:
-    - "Aaaaaand there\u2019s another one. Go for it."
+    - My son says those are just some stupid rocks and to stop bothering him.
   - SpeechBubbles:
     - "The father of the uncle of the cousin of my wife\u2019s mother called me."
     - "He doesn\u2019t know what the heck it can be."
+  - SpeechBubbles:
+    - "Aaaaaand there\u2019s another one. Go for it."
+  - SpeechBubbles:
+    - Defender of the Earth, we still don't know the nature of these asteroids.
+    - However, we are sure that the next wave is the last one. Go ahead, wreck the
+      rocks once and for all!
   - SpeechBubbles:
     - You did it. You saved the world
     - ' We finally know why we had to face so many asteroids in a row.'
