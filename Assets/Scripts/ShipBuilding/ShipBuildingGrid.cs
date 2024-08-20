@@ -79,6 +79,14 @@ public class ShipBuildingGrid : MonoBehaviour
 
     public bool CanBuildSpecificationsOnCoordinates(ShipPartSpecification specifications, Coordinates coordinates)
     {
+        int consideredCellIndex = GetIndexFromCoordinates(coordinates);
+        if(consideredCellIndex < 0 || consideredCellIndex >= _buildingCells.Count)
+            return false;
+
+        var consideredCell = _buildingCells[consideredCellIndex];
+        if (!consideredCell.isDeletable || !IsShipConnectedWithoutCell(consideredCell))
+            return false;
+
         var directionsToTest = new List<Directions>() { Directions.RIGHT, Directions.LEFT, Directions.DOWN, Directions.UP };
         bool hasAHullNextToIt = false;
         bool hasAHullOpposedToIt = false;
@@ -156,6 +164,51 @@ public class ShipBuildingGrid : MonoBehaviour
         shipBlueprint.LoadWithShipParts(shipParts);
         return shipBlueprint;
     }
+
+    private bool IsShipConnectedWithoutCell(ShipBuildingCell cellToTest)
+    {
+        var currentShipParts = GetShipBlueprint().GetShipParts();
+        currentShipParts.RemoveAll(shipPart => shipPart.Coordinates.Equals(cellToTest.Coordinates));
+        int hullShipParts = currentShipParts.Count(shipPart => shipPart.Specification.ShipPartArchetype.ShipPartType == ShipPartType.HULL);
+        int hullsConnected = 0;
+        var queueToTestConnection = new List<Coordinates>();
+        var firstHull = currentShipParts.FirstOrDefault(shipPart => shipPart.Specification.ShipPartArchetype.ShipPartType == ShipPartType.HULL);
+        if (firstHull != null)
+        {
+            queueToTestConnection.Add(firstHull.Coordinates);
+        }
+        else
+        {
+            return false;
+        }
+
+        var alreadyTestedCoordinates = new List<Coordinates>();
+        while(queueToTestConnection.Count > 0 )
+        {
+            ++hullsConnected;
+            var coordinatesToTest = queueToTestConnection.First();
+            queueToTestConnection.RemoveAt(0);
+            alreadyTestedCoordinates.Add(coordinatesToTest);
+            var directionsToTest = new List<Directions>() { Directions.RIGHT, Directions.LEFT, Directions.DOWN, Directions.UP };
+            foreach (var direction in directionsToTest)
+            {
+                int cellIndexInThatDirection = GetIndexFromCoordinates(coordinatesToTest.GetCoordinatesInDirection(direction));
+                if (cellIndexInThatDirection > 0 && cellIndexInThatDirection < _buildingCells.Count)
+                {
+                    var cellInThatDirection = _buildingCells[cellIndexInThatDirection];
+                    if(cellInThatDirection != cellToTest && cellInThatDirection.LoadedSpecification !=null
+                        && cellInThatDirection.LoadedSpecification.ShipPartArchetype.ShipPartType == ShipPartType.HULL
+                        && !alreadyTestedCoordinates.Contains(cellInThatDirection.Coordinates))
+                    {
+                        queueToTestConnection.Add(cellInThatDirection.Coordinates);
+                    }
+                }
+            }
+        }
+
+        return (hullsConnected == hullShipParts);
+    }
+
 
     private Coordinates GetCoordinatesFromIndex(int index)
     {
