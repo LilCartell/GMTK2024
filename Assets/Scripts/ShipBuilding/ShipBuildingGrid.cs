@@ -133,9 +133,13 @@ public class ShipBuildingGrid : MonoBehaviour
             if (!hasAHullOpposedToIt) //Cells pointing in a direction must have a hull opposed to them to "support" them
                 return false;
 
-            var cellPointedByNewCell = _buildingCells[GetIndexFromCoordinates(coordinates.GetCoordinatesInDirection(specifications.Orientation))];
-            if (cellPointedByNewCell.LoadedSpecification != null)
-                return false; //Don't put a new cell pointing to one already in place
+            int cellPointedByNewCellIndex = GetIndexFromCoordinates(coordinates.GetCoordinatesInDirection(specifications.Orientation));
+            if (cellPointedByNewCellIndex >= 0 && cellPointedByNewCellIndex < _buildingCells.Count)
+            {
+                var cellPointedByNewCell = _buildingCells[cellPointedByNewCellIndex];
+                if (cellPointedByNewCell.LoadedSpecification != null)
+                    return false; //Don't put a new cell pointing to one already in place
+            }
         }
         return true;
     }
