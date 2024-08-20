@@ -17,10 +17,6 @@ MonoBehaviour:
     Timer: 10
     CameraDistance: 10
     EnemyPrefab: {fileID: 7831384921569569516, guid: 76056407ed3d9594fa9a884b3ddcaecf, type: 3}
-  - Money: 15
-    Timer: 10
-    CameraDistance: 10
-    EnemyPrefab: {fileID: 7831384921569569516, guid: 45e92ef6b775b2a4ab042dc10da32869, type: 3}
   - Money: 20
     Timer: 20
     CameraDistance: 15

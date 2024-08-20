@@ -345,41 +345,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Briefings:
   - SpeechBubbles:
-    - This is the first briefing
-    - You're being briefed
-    - Go
+    - Welcome to the earth defenders coalition. You are just in time !
+    - There's an asteroid about to crash on earth and kill us all !
+    - Build a ship, destroy the asteroid and save us !
+    - Build a ship, destroy the asteroid and save us !
+    - WRECK THE ROCK !
   - SpeechBubbles:
-    - Congrats for the first level
-    - But it's not other. Go.
+    - "Good job boy, but don\u2019t celebrate just yet."
+    - "A bigger one. And it has a\u2026 Heart ?!"
+    - Tech guys think that it's a weak point, you should fire at it at all costs.
+      Now go !
   - SpeechBubbles:
-    - Congrats for the second level
-    - But it's not other. Go.
+    - "We don\u2019t know where they keep coming from."
+    - Some scientist says that is the same crew as the one that killed dinosaurs
+      and they come to finish the job.
   - SpeechBubbles:
-    - Congrats for the third level
-    - But it's not other. Go.
+    - "Aaaaaand there\u2019s another one. Go for it."
   - SpeechBubbles:
-    - Congrats for the fourth level
-    - But it's not other. Go.
+    - Personally I think that this is giants playing baseball from the asteroid belt
+      and we are right on the way.
   - SpeechBubbles:
-    - Congrats for the fith level
-    - But it's not other. Go.
+    - "Aaaaaand there\u2019s another one. Go for it."
   - SpeechBubbles:
-    - Congrats for the sixth level
-    - But it's not other. Go.
+    - The janitor thinks that these are space chickens that saw what we do to chickens
+      here on earth and they are looking for revenge.
   - SpeechBubbles:
-    - Congrats for the seventh level
-    - But it's not other. Go.
+    - My son says that those are just some stupid rocks and to stop bothering him.
   - SpeechBubbles:
-    - Congrats for the eighth level
-    - But it's not other. Go.
+    - "Aaaaaand there\u2019s another one. Go for it."
   - SpeechBubbles:
-    - Congrats for the ninth level
-    - But it's not other. Go.
+    - "The father of the uncle of the cousin of my wife\u2019s mother called me."
+    - "He doesn\u2019t know what the heck it can be."
   - SpeechBubbles:
-    - You did it
-    - You saved the world
-    - Why all this ?
-    - Classified lol
+    - You did it. You saved the world
+    - ' We finally know why we had to face so many asteroids in a row.'
+    - And the reason is
+    - Classified.
   BriefingText: {fileID: 1848779658}
 --- !u!4 &1293970509
 Transform:
@@ -583,9 +584,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Briefing
-
-'
+  m_text: "Welcome to the earth defenders coalition. You are just in time ! There\u2019s
+    an asteroid about to crash on earth and kill us all ! Build a ship, destroy the
+    asteroid and save us !\r\nWRECK THE ROCK !\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -678,8 +679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.286, y: -3.0954}
-  m_SizeDelta: {x: 495.0887, y: 56.1907}
+  m_AnchoredPosition: {x: -9.286, y: -18.607}
+  m_SizeDelta: {x: 495.089, y: 87.214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2093820717
 GameObject:

@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakeDamageAudioSource: {fileID: 2846480561345384850}
-  StartingLife: 60
+  StartingLife: 70
 --- !u!50 &3419889212092180307
 Rigidbody2D:
   serializedVersion: 4
